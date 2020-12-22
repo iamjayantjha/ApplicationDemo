@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView certcred;
     ProgressDialog pd;
     FirebaseAuth mAuth;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                 pd.dismiss();
                 Toast.makeText(LoginActivity.this,"All fields are required..",Toast.LENGTH_LONG).show();
             }else {
+                reference = FirebaseDatabase.getInstance().getReference();
                 mAuth.signInWithEmailAndPassword(str_email,str_password).addOnCompleteListener(LoginActivity.this, task -> {
                     if (task.isSuccessful()){
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
@@ -87,5 +89,14 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mAuth.getCurrentUser()!=null){
+            Intent main = new Intent(LoginActivity.this,MainActivity.class);
+            main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(main);
+            finish();
+        }
+    }
 }

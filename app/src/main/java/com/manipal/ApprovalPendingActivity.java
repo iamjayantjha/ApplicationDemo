@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,9 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.manipal.Model.User;
 
-import java.util.Objects;
-
-public class MainActivity extends AppCompatActivity {
+public class ApprovalPendingActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mCurrentUser;
     DatabaseReference reference;
@@ -29,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_approval_pending);
         mAuth = FirebaseAuth.getInstance();
         status = findViewById(R.id.status);
         mCurrentUser = mAuth.getCurrentUser();
@@ -46,21 +42,22 @@ public class MainActivity extends AppCompatActivity {
                 if (getApplicationContext() == null){
                     return;
                 }
+
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
                 status.setText(user.getApproved());
-                if (status.getText().equals("N")||status.getText().equals("n")){
-                    Intent main = new Intent(MainActivity.this,ApprovalPendingActivity.class);
+                if (status.getText().equals("Y")||status.getText().equals("y")){
+                    Intent main = new Intent(ApprovalPendingActivity.this,MainActivity.class);
                     main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(main);
                     finish();
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
     }
-
 }

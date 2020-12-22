@@ -84,11 +84,12 @@ public class CredentialsActivity extends AppCompatActivity {
                 hashMap.put("username",username);
                 hashMap.put("department", department);
                 hashMap.put("email", email);
+                hashMap.put("approved", "N");
                 hashMap.put("imageURL","https://firebasestorage.googleapis.com/v0/b/vani-chat-9b86a.appspot.com/o/profile.jpg?alt=media&token=9f42e809-127c-49e2-9a53-351cd8d38104");
                 reference.setValue(hashMap).addOnCompleteListener(task1 -> {
                     if (task1.isSuccessful()){
                         pd.dismiss();
-                        Intent main = new Intent(CredentialsActivity.this, MainActivity.class);
+                        Intent main = new Intent(CredentialsActivity.this, ApprovalPendingActivity.class);
                         main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(main);
