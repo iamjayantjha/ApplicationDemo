@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "728064808422",
+    "firebase_url": "https://faq-bxjtdw.firebaseio.com",
+    "project_id": "faq-bxjtdw",
+    "storage_bucket": "faq-bxjtdw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728064808422:android:2c54e8511980bb5b867227",
+        "android_client_info": {
+          "package_name": "com.manipal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728064808422-3sjsg1jetulb4pn4t4gd5msl9fdmqkck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.manipal",
+            "certificate_hash": "4a3bba9f5bad392983a15abc255adb246cf9bae3"
+          }
+        },
+        {
+          "client_id": "728064808422-mqm3suh5mmd11loiun2k0ubj5gnciv45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnMQUO26DJCZagjtzmtivnuNCkd85zPkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728064808422-mqm3suh5mmd11loiun2k0ubj5gnciv45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
