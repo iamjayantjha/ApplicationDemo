@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Zerostic</string>
     <string name="credentials"><u>Ask for certified credentials</u></string>
+    <string name="have_credentials"><u>Have certified credentials</u></string>
     <string name="helper_text">Your default ID</string>
 
 </resources>
