@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.background));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
-        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+       // dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
         fui = findViewById(R.id.fui);
         logoutBtn = (ImageView) findViewById(R.id.logout);
         pri = findViewById(R.id.pri);
