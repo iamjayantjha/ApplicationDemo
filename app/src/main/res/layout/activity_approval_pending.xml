@@ -61,7 +61,7 @@
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="LOGOUT"
+        android:text="BACK TO LOGIN"
         android:textStyle="bold"/>
 
 
