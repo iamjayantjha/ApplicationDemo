@@ -39,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+    if (mCurrentUser == null){
+        Intent main = new Intent(MainActivity.this, LoginActivity.class);
+        main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(main);
+        finish();
+    }else
+    {
         reference = FirebaseDatabase.getInstance().getReference("Users").child(uID);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -61,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
     }
 
 }
