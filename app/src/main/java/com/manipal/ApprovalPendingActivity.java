@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +21,7 @@ public class ApprovalPendingActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mCurrentUser;
     DatabaseReference reference;
-    TextView status;
+    TextView status,username;
     String uID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class ApprovalPendingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_approval_pending);
         mAuth = FirebaseAuth.getInstance();
         status = findViewById(R.id.status);
+        username = findViewById(R.id.username);
         mCurrentUser = mAuth.getCurrentUser();
         uID = mCurrentUser.getUid();
     }
@@ -45,6 +47,8 @@ public class ApprovalPendingActivity extends AppCompatActivity {
 
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
+                username.setVisibility(View.VISIBLE);
+                username.setText(user.getName()+" ,");
                 status.setText(user.getApproved());
                 if (status.getText().equals("Y")||status.getText().equals("y")){
                     Intent main = new Intent(ApprovalPendingActivity.this,MainActivity.class);
