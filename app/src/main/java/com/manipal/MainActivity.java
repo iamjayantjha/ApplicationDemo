@@ -1,15 +1,19 @@
 package com.manipal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference reference;
     TextView status;
     String uID;
+    Dialog dialog;
     ImageView fi,si,pi,ri,anr,fui,pri,smi,logoutBtn;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,29 +50,52 @@ public class MainActivity extends AppCompatActivity {
         pi = findViewById(R.id.pi);
         ri = findViewById(R.id.ri);
         anr = findViewById(R.id.anr);
+        dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.check_layout);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.background));
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
         fui = findViewById(R.id.fui);
         logoutBtn = (ImageView) findViewById(R.id.logout);
         pri = findViewById(R.id.pri);
         smi = findViewById(R.id.smi);
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         final long[] pattern = {40, 80};
+        TextView okay = dialog.findViewById(R.id.okayBtn);
+        TextView cancel = dialog.findViewById(R.id.cancelBtn);
+        okay.setOnClickListener(v -> {
+            vibrator.vibrate(pattern, -1);
+            dialog.dismiss();
+            FirebaseAuth.getInstance().signOut();
+            Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+            login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(login);
+            finish();
+        });
+        cancel.setOnClickListener(v -> {
+            vibrator.vibrate(pattern, -1);
+            dialog.dismiss();
+        });
         logoutBtn.setOnClickListener(v -> {
             vibrator.vibrate(pattern, -1);
-            AlertDialog.Builder logOutConfirmation = new AlertDialog.Builder(MainActivity.this);
-            logOutConfirmation.setTitle("Log Out");
-            logOutConfirmation.setMessage("Are you sure you want to Log Out?");
-            logOutConfirmation.setPositiveButton("Yes", (dialog, which) -> {
-                vibrator.vibrate(pattern, -1);
-                FirebaseAuth.getInstance().signOut();
-                Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-                login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(login);
-                finish();
-            });
-            logOutConfirmation.setNegativeButton("No", (dialog, which) -> {
-                vibrator.vibrate(pattern, -1);
-            });
-            logOutConfirmation.create().show();
+            dialog.show();
+//            vibrator.vibrate(pattern, -1);
+//            AlertDialog.Builder logOutConfirmation = new AlertDialog.Builder(MainActivity.this);
+//            logOutConfirmation.setTitle("Log Out");
+//            logOutConfirmation.setMessage("Are you sure you want to Log Out?");
+//            logOutConfirmation.setPositiveButton("Yes", (dialog, which) -> {
+//                vibrator.vibrate(pattern, -1);
+//                FirebaseAuth.getInstance().signOut();
+//                Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+//                login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                startActivity(login);
+//                finish();
+//            });
+//            logOutConfirmation.setNegativeButton("No", (dialog, which) -> {
+//                vibrator.vibrate(pattern, -1);
+//            });
+//            logOutConfirmation.create().show();
         });
         fi.setOnClickListener(v ->
                 vibrator.vibrate(pattern, -1)

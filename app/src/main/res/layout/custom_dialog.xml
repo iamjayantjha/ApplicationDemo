@@ -10,30 +10,16 @@
         android:id="@+id/firstLine"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/headerText"
         android:background="@android:color/darker_gray"
         android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/headerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:text="Log Out"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-
-    <TextView
         android:id="@+id/confirmText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/firstLine"
         android:textSize="20sp"
+        android:layout_below="@id/firstLine"
         android:text="Are you sure you want to Log Out?"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -50,26 +36,23 @@
         android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/cancelBtn"
+        android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CANCEL"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/orange"
+        android:layout_marginTop="25dp"
+        android:textColor="#3F51B5"
         android:layout_marginLeft="50dp"
         android:layout_below="@id/secondLine"
-        android:textSize="20sp"
-        android:layout_toLeftOf="@+id/thirdLine"
-        android:layout_alignParentLeft="true" />
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/okayBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OKAY"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/orange"
+        android:layout_marginTop="25dp"
+        android:textColor="#3F51B5"
         android:layout_marginRight="75dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/secondLine"
@@ -79,11 +62,18 @@
     <View
         android:id="@+id/thirdLine"
         android:layout_width="2dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:background="@android:color/darker_gray"
         android:layout_below="@id/secondLine"
         android:layout_centerHorizontal="true"/>
 
+    <View
+        android:id="@+id/fourthLine"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/thirdLine"
+        android:layout_centerHorizontal="true"/>
 
 
 
