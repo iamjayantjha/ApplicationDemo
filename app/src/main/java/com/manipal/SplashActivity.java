@@ -18,9 +18,6 @@ public class SplashActivity extends AppCompatActivity {
             main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(main);
             finish();
-//                Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
-//                SplashActivity.this.startActivity(mainIntent);
-//                SplashActivity.this.finish();
         }, SPLASH_DISPLAY_LENGTH);
     }
 }
