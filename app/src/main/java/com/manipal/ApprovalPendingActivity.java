@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +25,7 @@ public class ApprovalPendingActivity extends AppCompatActivity {
     DatabaseReference reference;
     TextView status,username;
     String uID;
+    Button logoutBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,17 @@ public class ApprovalPendingActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         mCurrentUser = mAuth.getCurrentUser();
         uID = mCurrentUser.getUid();
+        logoutBtn = findViewById(R.id.logoutBtn);
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        final long[] pattern = {40, 80};
+        logoutBtn.setOnClickListener(v ->{
+            vibrator.vibrate(pattern, -1);
+            FirebaseAuth.getInstance().signOut();
+            Intent login = new Intent(ApprovalPendingActivity.this, LoginActivity.class);
+            login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(login);
+            finish();
+        });
     }
 
     @Override

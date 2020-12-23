@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -42,14 +43,18 @@ public class CredentialsActivity extends AppCompatActivity {
         mName = findViewById(R.id.nametext);
         mDepartment = findViewById(R.id.departmenttext);
         regBtn = findViewById(R.id.regBtn);
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        final long[] pattern = {40, 80};
         mAuth = FirebaseAuth.getInstance();
         certcred = findViewById(R.id.certifiedcredentials);
         certcred.setOnClickListener(v -> {
+            vibrator.vibrate(pattern, -1);
             Intent login = new Intent(CredentialsActivity.this, LoginActivity.class);
             login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(login);
         });
         regBtn.setOnClickListener(v -> {
+            vibrator.vibrate(pattern, -1);
             pd = new ProgressDialog(CredentialsActivity.this);
             pd.setMessage("Please Wait..");
             pd.show();

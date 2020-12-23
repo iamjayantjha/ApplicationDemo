@@ -1,12 +1,16 @@
 package com.manipal;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference reference;
     TextView status;
     String uID;
+    ImageView fi,si,pi,ri,anr,fui,pri,smi,logoutBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,59 @@ public class MainActivity extends AppCompatActivity {
         status = findViewById(R.id.status);
         mCurrentUser = mAuth.getCurrentUser();
         uID = mCurrentUser.getUid();
+        fi = findViewById(R.id.fi);
+        si = findViewById(R.id.si);
+        pi = findViewById(R.id.pi);
+        ri = findViewById(R.id.ri);
+        anr = findViewById(R.id.anr);
+        fui = findViewById(R.id.fui);
+        logoutBtn = (ImageView) findViewById(R.id.logout);
+        pri = findViewById(R.id.pri);
+        smi = findViewById(R.id.smi);
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        final long[] pattern = {40, 80};
+        logoutBtn.setOnClickListener(v -> {
+            vibrator.vibrate(pattern, -1);
+            AlertDialog.Builder logOutConfirmation = new AlertDialog.Builder(MainActivity.this);
+            logOutConfirmation.setTitle("Log Out");
+            logOutConfirmation.setMessage("Are you sure you want to Log Out?");
+            logOutConfirmation.setPositiveButton("Yes", (dialog, which) -> {
+                vibrator.vibrate(pattern, -1);
+                FirebaseAuth.getInstance().signOut();
+                Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(login);
+                finish();
+            });
+            logOutConfirmation.setNegativeButton("No", (dialog, which) -> {
+                vibrator.vibrate(pattern, -1);
+            });
+            logOutConfirmation.create().show();
+        });
+        fi.setOnClickListener(v ->
+                vibrator.vibrate(pattern, -1)
+        );
+        si.setOnClickListener(v ->
+                vibrator.vibrate(pattern, -1)
+        );
+        pi.setOnClickListener(v ->
+                vibrator.vibrate(pattern, -1)
+        );
+        ri.setOnClickListener(v ->
+                vibrator.vibrate(pattern, -1)
+        );
+        anr.setOnClickListener(v ->
+                vibrator.vibrate(pattern, -1)
+        );
+        fui.setOnClickListener(v ->
+                vibrator.vibrate(pattern, -1)
+        );
+        pri.setOnClickListener(v ->
+                vibrator.vibrate(pattern, -1)
+        );
+        smi.setOnClickListener(v ->
+                vibrator.vibrate(pattern, -1)
+        );
     }
 
     @Override
