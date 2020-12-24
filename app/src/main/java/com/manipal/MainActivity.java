@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     SearchView searchView;
     ArrayAdapter<String> adapter;
     ArrayList<String> list;
-    //String[] data = {"Giriraj Methi","Nilanjan Halder", "Alok Damre", "Prakash Ramani", "Prabhu Inbraj", "Tej Pal"};
     ImageView fi,si,pi,ri,anr,fui,pri,smi,logoutBtn,close;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
