@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                close.setVisibility(View.VISIBLE);
                 rl.setVisibility(View.GONE);
                 lv.setVisibility(View.VISIBLE);
                 adapter.getFilter().filter(newText);
@@ -126,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
             vibrator.vibrate(pattern, -1);
             rl.setVisibility(View.VISIBLE);
             lv.setVisibility(View.GONE);
+            close.setVisibility(View.GONE);
             searchView.setFocusable(false);
         });
         okay.setOnClickListener(v -> {

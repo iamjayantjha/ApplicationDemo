@@ -40,7 +40,7 @@
             android:queryHint="Search..."
             android:voiceIcon="@drawable/ic_mic"
             android:transitionName="search"
-            android:iconifiedByDefault="false"
+            android:iconifiedByDefault="true"
             android:layout_centerHorizontal="true"
             android:layout_width="230dp"
             android:layout_height="wrap_content">
@@ -65,6 +65,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
+            android:visibility="gone"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_close"/>
 
