@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -38,14 +40,14 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser mCurrentUser;
     DatabaseReference reference;
     TextView status;
-    String uID;
+   // String uID;
     Dialog dialog;
     RelativeLayout rl;
     ListView lv;
     SearchView searchView;
     ArrayAdapter<String> adapter;
     ArrayList<String> list;
-    ImageView fi,si,pi,ri,anr,fui,pri,smi,logoutBtn,close;
+    ImageView fi,si,pi,ri,anr,fui,pri,smi,logoutBtn,close,logo;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         status = findViewById(R.id.status);
         mCurrentUser = mAuth.getCurrentUser();
-        uID = mCurrentUser.getUid();
+//        uID = mCurrentUser.getUid();
         fi = findViewById(R.id.fi);
         rl = findViewById(R.id.info);
         lv = findViewById(R.id.listView);
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         pi = findViewById(R.id.pi);
         ri = findViewById(R.id.ri);
         close = findViewById(R.id.close);
+        logo = findViewById(R.id.logo);
         anr = findViewById(R.id.anr);
         dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.check_layout);
@@ -162,9 +165,18 @@ public class MainActivity extends AppCompatActivity {
 //            });
 //            logOutConfirmation.create().show();
         });
-        fi.setOnClickListener(v ->
-                vibrator.vibrate(pattern, -1)
-        );
+        fi.setOnClickListener(v ->{
+            Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            Pair[] pairs = new Pair[4];
+            pairs[0] = new Pair<View, String>(fi, "tile");
+            pairs[1] = new Pair<View, String>(logo,"logo");
+            pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[3] = new Pair<View, String>(searchView, "search");
+            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(info, options.toBundle());
+            vibrator.vibrate(pattern, -1);
+        });
         si.setOnClickListener(v ->
                 vibrator.vibrate(pattern, -1)
         );
@@ -183,9 +195,18 @@ public class MainActivity extends AppCompatActivity {
         pri.setOnClickListener(v ->
                 vibrator.vibrate(pattern, -1)
         );
-        smi.setOnClickListener(v ->
-                vibrator.vibrate(pattern, -1)
-        );
+        smi.setOnClickListener(v ->{
+            Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            Pair[] pairs = new Pair[4];
+            pairs[0] = new Pair<View, String>(smi, "tile");
+            pairs[1] = new Pair<View, String>(logo,"logo");
+            pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[3] = new Pair<View, String>(searchView, "search");
+            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(info, options.toBundle());
+            vibrator.vibrate(pattern, -1);
+        });
     }
 
     @Override
@@ -198,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }else
     {
-        reference = FirebaseDatabase.getInstance().getReference("Users").child(uID);
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(mCurrentUser.getUid());
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

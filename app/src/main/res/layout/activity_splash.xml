@@ -5,7 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashActivity"
-    android:orientation="vertical"
-    android:background="@drawable/manipalsplash">
+    android:orientation="vertical">
+
+    <ImageView
+        android:transitionName="logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/logo"
+        android:src="@drawable/mu_logo"/>
 
 </RelativeLayout>

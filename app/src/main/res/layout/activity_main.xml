@@ -8,9 +8,10 @@
 
     <ImageView
         android:id="@+id/logo"
+        android:transitionName="logo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/manipallogo"/>
+        android:layout_height="150dp"
+        android:src="@drawable/mu_logo"/>
 
     <RelativeLayout
         android:id="@+id/searchPanel"
@@ -26,6 +27,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:transitionName="back"
             android:layout_marginTop="5dp"
             android:layout_alignParentStart="true"
             android:layout_toLeftOf="@id/searchBar"
@@ -37,6 +39,7 @@
             android:background="@drawable/textfield_layout"
             android:queryHint="Search..."
             android:voiceIcon="@drawable/ic_mic"
+            android:transitionName="search"
             android:iconifiedByDefault="false"
             android:layout_centerHorizontal="true"
             android:layout_width="230dp"
@@ -85,6 +88,7 @@
 
         <ImageView
             android:id="@+id/fi"
+            android:transitionName="tile"
             android:layout_width="180dp"
             android:layout_centerHorizontal="true"
             android:layout_height="60dp"
@@ -95,6 +99,7 @@
             android:id="@+id/si"
             android:layout_width="180dp"
             android:layout_height="60dp"
+            android:transitionName="tile"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/fi"
             android:src="@drawable/si"/>
@@ -106,12 +111,14 @@
             android:layout_centerHorizontal="true"
             android:layout_height="60dp"
             android:layout_below="@id/si"
+            android:transitionName="tile"
             android:src="@drawable/pi"/>
 
         <ImageView
             android:id="@+id/ri"
             android:layout_width="200dp"
             android:layout_height="60dp"
+            android:transitionName="tile"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/pi"
             android:src="@drawable/ri"/>
@@ -120,6 +127,7 @@
         <ImageView
             android:id="@+id/anr"
             android:layout_width="220dp"
+            android:transitionName="tile"
             android:layout_centerHorizontal="true"
             android:layout_height="60dp"
             android:layout_below="@id/ri"
@@ -129,6 +137,7 @@
         <ImageView
             android:id="@+id/fui"
             android:layout_width="250dp"
+            android:transitionName="tile"
             android:layout_centerHorizontal="true"
             android:layout_height="60dp"
             android:layout_below="@id/anr"
@@ -137,6 +146,7 @@
 
         <ImageView
             android:id="@+id/pri"
+            android:transitionName="tile"
             android:layout_width="200dp"
             android:layout_centerHorizontal="true"
             android:layout_height="60dp"
@@ -147,6 +157,7 @@
         <ImageView
             android:id="@+id/smi"
             android:layout_width="250dp"
+            android:transitionName="tile"
             android:layout_centerHorizontal="true"
             android:layout_height="60dp"
             android:layout_below="@id/pri"

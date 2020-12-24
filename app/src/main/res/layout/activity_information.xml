@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InformationActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:transitionName="logo"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mu_logo"/>
+
+    <RelativeLayout
+        android:id="@+id/searchPanel"
+        android:layout_below="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:transitionName="back"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@id/searchBar"
+            android:src="@drawable/ic_back"
+            android:layout_alignParentLeft="true" />
+
+        <SearchView
+            android:id="@+id/searchBar"
+            android:background="@drawable/textfield_layout"
+            android:queryHint="Search..."
+            android:voiceIcon="@drawable/ic_mic"
+            android:transitionName="search"
+            android:iconifiedByDefault="false"
+            android:layout_centerHorizontal="true"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content">
+
+            <requestFocus/>
+
+        </SearchView>
+
+        <ListView
+            android:id="@+id/listView"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!---->ImageView
+            android:id="@+id/close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/searchBar"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_close"/>
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:src="@drawable/smi"
+        android:transitionName="tile"
+        android:layout_below="@id/searchPanel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info"/>
+
+    <TextView
+        android:id="@+id/facultyWise"
+        android:layout_below="@+id/info"
+        android:text="FACULTY WISE"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/schoolWise"
+        android:layout_below="@+id/facultyWise"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="SCHOOL WISE"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/deptWise"
+        android:layout_below="@+id/schoolWise"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="DEPARTMENT WISE"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+</RelativeLayout>
