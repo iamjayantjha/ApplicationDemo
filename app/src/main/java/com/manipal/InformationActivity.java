@@ -58,10 +58,10 @@ public class InformationActivity extends AppCompatActivity {
 //            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
 //            startActivity(main);
 //            finish();
-            Intent mainIntent = new Intent(InformationActivity.this, MainActivity.class);
-            InformationActivity.this.startActivity(mainIntent);
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-            InformationActivity.this.finish();
+//            Intent mainIntent = new Intent(InformationActivity.this, MainActivity.class);
+//            InformationActivity.this.startActivity(mainIntent);
+//            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+//            InformationActivity.this.finish();
         });
     }
 }
