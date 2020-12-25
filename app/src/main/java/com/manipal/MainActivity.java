@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     SearchView searchView;
     ArrayAdapter<String> adapter;
     ArrayList<String> list;
+    String tile;
     ImageView fi,si,pi,ri,anr,fui,pri,smi,logoutBtn,close,logo;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -169,42 +170,112 @@ public class MainActivity extends AppCompatActivity {
         });
         fi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            tile ="fi";
             Pair[] pairs = new Pair[4];
             pairs[0] = new Pair<View, String>(fi, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
             pairs[2] = new Pair<View, String>(logoutBtn, "back");
             pairs[3] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);
         });
-        si.setOnClickListener(v ->
-                vibrator.vibrate(pattern, -1)
-        );
-        pi.setOnClickListener(v ->
-                vibrator.vibrate(pattern, -1)
-        );
-        ri.setOnClickListener(v ->
-                vibrator.vibrate(pattern, -1)
-        );
-        anr.setOnClickListener(v ->
-                vibrator.vibrate(pattern, -1)
-        );
-        fui.setOnClickListener(v ->
-                vibrator.vibrate(pattern, -1)
-        );
-        pri.setOnClickListener(v ->
-                vibrator.vibrate(pattern, -1)
-        );
+        si.setOnClickListener(v ->{
+            Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            tile ="si";
+            Pair[] pairs = new Pair[4];
+            pairs[0] = new Pair<View, String>(si, "tile");
+            pairs[1] = new Pair<View, String>(logo,"logo");
+            pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[3] = new Pair<View, String>(searchView, "search");
+            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            info.putExtra("tile",tile);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(info, options.toBundle());
+            vibrator.vibrate(pattern, -1);
+        });
+        pi.setOnClickListener(v ->{
+            Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            tile ="pi";
+            Pair[] pairs = new Pair[4];
+            pairs[0] = new Pair<View, String>(pi, "tile");
+            pairs[1] = new Pair<View, String>(logo,"logo");
+            pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[3] = new Pair<View, String>(searchView, "search");
+            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            info.putExtra("tile",tile);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(info, options.toBundle());
+            vibrator.vibrate(pattern, -1);
+        });
+        ri.setOnClickListener(v ->{
+            Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            tile ="ri";
+            Pair[] pairs = new Pair[4];
+            pairs[0] = new Pair<View, String>(ri, "tile");
+            pairs[1] = new Pair<View, String>(logo,"logo");
+            pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[3] = new Pair<View, String>(searchView, "search");
+            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            info.putExtra("tile",tile);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(info, options.toBundle());
+            vibrator.vibrate(pattern, -1);
+        });
+        anr.setOnClickListener(v ->{
+            Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            tile ="anr";
+            Pair[] pairs = new Pair[4];
+            pairs[0] = new Pair<View, String>(anr, "tile");
+            pairs[1] = new Pair<View, String>(logo,"logo");
+            pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[3] = new Pair<View, String>(searchView, "search");
+            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            info.putExtra("tile",tile);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(info, options.toBundle());
+            vibrator.vibrate(pattern, -1);
+        });
+        fui.setOnClickListener(v ->{
+            Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            tile ="fui";
+            Pair[] pairs = new Pair[4];
+            pairs[0] = new Pair<View, String>(fui, "tile");
+            pairs[1] = new Pair<View, String>(logo,"logo");
+            pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[3] = new Pair<View, String>(searchView, "search");
+            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            info.putExtra("tile",tile);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(info, options.toBundle());
+            vibrator.vibrate(pattern, -1);
+        });
+        pri.setOnClickListener(v ->{
+            Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            tile ="pri";
+            Pair[] pairs = new Pair[4];
+            pairs[0] = new Pair<View, String>(pri, "tile");
+            pairs[1] = new Pair<View, String>(logo,"logo");
+            pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[3] = new Pair<View, String>(searchView, "search");
+            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            info.putExtra("tile",tile);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(info, options.toBundle());
+            vibrator.vibrate(pattern, -1);
+        });
         smi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
+            tile ="smi";
             Pair[] pairs = new Pair[4];
             pairs[0] = new Pair<View, String>(smi, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
             pairs[2] = new Pair<View, String>(logoutBtn, "back");
             pairs[3] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);
