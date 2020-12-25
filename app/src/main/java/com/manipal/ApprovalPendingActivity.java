@@ -64,10 +64,11 @@ public class ApprovalPendingActivity extends AppCompatActivity {
                 username.setVisibility(View.VISIBLE);
                 username.setText(user.getName()+" ,");
                 status.setText(user.getApproved());
-                if (status.getText().equals("Y")||status.getText().equals("y")){
+                if (status.getText().equals("Y")||status.getText().equals("y")||status.getText().equals("Yes")||status.getText().equals("yes")){
                     Intent main = new Intent(ApprovalPendingActivity.this,MainActivity.class);
                     main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(main);
+                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                     finish();
                 }
             }

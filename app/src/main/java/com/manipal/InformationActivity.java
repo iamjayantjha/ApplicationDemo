@@ -25,7 +25,7 @@ public class InformationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_information);
         tileImg = findViewById(R.id.info);
         status = findViewById(R.id.status);
-        back = findViewById(R.id.back);
+        //back = findViewById(R.id.back);
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         final long[] pattern = {40, 80};
         tile = getIntent().getStringExtra("tile");
@@ -48,7 +48,7 @@ public class InformationActivity extends AppCompatActivity {
             tileImg.setImageResource(R.drawable.smi);
         }
 
-        back.setOnClickListener(v ->{
+    /*    back.setOnClickListener(v ->{
             vibrator.vibrate(pattern, -1);
 //            Pair[] pairs = new Pair[1];
 //            pairs[0] = new Pair<View, String>(tileImg, "tile");
@@ -62,6 +62,6 @@ public class InformationActivity extends AppCompatActivity {
 //            InformationActivity.this.startActivity(mainIntent);
 //            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 //            InformationActivity.this.finish();
-        });
+        });*/
     }
 }

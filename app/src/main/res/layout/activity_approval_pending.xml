@@ -18,7 +18,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/manipallogo"
+        android:src="@drawable/mu_logo"
         android:id="@+id/logo"/>
 
     <TextView

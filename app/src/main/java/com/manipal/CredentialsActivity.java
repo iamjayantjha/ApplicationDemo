@@ -52,6 +52,7 @@ public class CredentialsActivity extends AppCompatActivity {
             Intent login = new Intent(CredentialsActivity.this, LoginActivity.class);
             login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(login);
+            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
         });
         regBtn.setOnClickListener(v -> {
             vibrator.vibrate(pattern, -1);
@@ -98,6 +99,7 @@ public class CredentialsActivity extends AppCompatActivity {
                         main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(main);
+                        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                         finish();
                     }else {
                         pd.dismiss();

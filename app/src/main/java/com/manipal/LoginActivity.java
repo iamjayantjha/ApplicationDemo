@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent credIntent = new Intent(LoginActivity.this, CredentialsActivity.class);
             credIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(credIntent);
+            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
         });
         loginBtn.setOnClickListener(v -> {
             vibrator.vibrate(pattern, -1);
@@ -76,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent main = new Intent(LoginActivity.this, MainActivity.class);
                                 main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(main);
+                                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                                 finish();
                             }
 

@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser mCurrentUser;
     DatabaseReference reference;
     TextView status;
-   // String uID;
     Dialog dialog;
     RelativeLayout rl;
     ListView lv;
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         status = findViewById(R.id.status);
         mCurrentUser = mAuth.getCurrentUser();
-//        uID = mCurrentUser.getUid();
         fi = findViewById(R.id.fi);
         rl = findViewById(R.id.info);
         lv = findViewById(R.id.listView);
@@ -138,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
             Intent login = new Intent(getApplicationContext(), LoginActivity.class);
             login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(login);
+            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             finish();
         });
         cancel.setOnClickListener(v -> {
@@ -171,11 +170,11 @@ public class MainActivity extends AppCompatActivity {
         fi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="fi";
-            Pair[] pairs = new Pair[4];
+            Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(fi, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
-            pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[3] = new Pair<View, String>(searchView, "search");
+          //  pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
@@ -185,11 +184,11 @@ public class MainActivity extends AppCompatActivity {
         si.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="si";
-            Pair[] pairs = new Pair[4];
+            Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(si, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
-            pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[3] = new Pair<View, String>(searchView, "search");
+           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
@@ -199,11 +198,11 @@ public class MainActivity extends AppCompatActivity {
         pi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="pi";
-            Pair[] pairs = new Pair[4];
+            Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(pi, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
-            pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[3] = new Pair<View, String>(searchView, "search");
+           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
@@ -213,11 +212,11 @@ public class MainActivity extends AppCompatActivity {
         ri.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="ri";
-            Pair[] pairs = new Pair[4];
+            Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(ri, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
-            pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[3] = new Pair<View, String>(searchView, "search");
+            //pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
@@ -227,11 +226,11 @@ public class MainActivity extends AppCompatActivity {
         anr.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="anr";
-            Pair[] pairs = new Pair[4];
+            Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(anr, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
-            pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[3] = new Pair<View, String>(searchView, "search");
+           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
@@ -241,11 +240,11 @@ public class MainActivity extends AppCompatActivity {
         fui.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="fui";
-            Pair[] pairs = new Pair[4];
+            Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(fui, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
-            pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[3] = new Pair<View, String>(searchView, "search");
+           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
@@ -255,11 +254,11 @@ public class MainActivity extends AppCompatActivity {
         pri.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="pri";
-            Pair[] pairs = new Pair[4];
+            Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(pri, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
-            pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[3] = new Pair<View, String>(searchView, "search");
+           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
@@ -269,11 +268,11 @@ public class MainActivity extends AppCompatActivity {
         smi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="smi";
-            Pair[] pairs = new Pair[4];
+            Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(smi, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
-            pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[3] = new Pair<View, String>(searchView, "search");
+          //  pairs[2] = new Pair<View, String>(logoutBtn, "back");
+            pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
@@ -302,10 +301,11 @@ public class MainActivity extends AppCompatActivity {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
                 status.setText(user.getApproved());
-                if (status.getText().equals("N")||status.getText().equals("n")){
+                if (status.getText().equals("N")||status.getText().equals("n")||status.getText().equals("No")||status.getText().equals("no")){
                     Intent main = new Intent(MainActivity.this,ApprovalPendingActivity.class);
                     main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(main);
+                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
                     finish();
                 }
             }

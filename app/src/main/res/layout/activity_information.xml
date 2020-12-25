@@ -27,7 +27,7 @@
 
 
 
-        <ImageView
+        <!---->ImageView
             android:id="@+id/back"
             android:layout_width="50dp"
             android:layout_height="40dp"
@@ -48,7 +48,9 @@
             android:transitionName="search"
             android:iconifiedByDefault="true"
             android:layout_centerHorizontal="true"
-            android:layout_width="230dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_height="wrap_content">
 
             <requestFocus/>
@@ -78,7 +80,6 @@
 
 
     <ImageView
-        android:src="@drawable/smi"
         android:transitionName="tile"
         android:layout_below="@id/searchPanel"
         android:layout_centerHorizontal="true"
