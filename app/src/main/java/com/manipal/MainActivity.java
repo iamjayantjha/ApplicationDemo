@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.check_layout);
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.background));
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
        // dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
         fui = findViewById(R.id.fui);
@@ -144,28 +144,28 @@ public class MainActivity extends AppCompatActivity {
             dialog.dismiss();
         });
         logoutBtn.setOnClickListener(v -> {
-            title.setVisibility(View.VISIBLE);
+            /*title.setVisibility(View.VISIBLE);
             title.setText("Log Out");
             message.setVisibility(View.VISIBLE);
             message.setText("Are you sure you want to Log Out?");
             vibrator.vibrate(pattern, -1);
-            dialog.show();
-//            vibrator.vibrate(pattern, -1);
-//            AlertDialog.Builder logOutConfirmation = new AlertDialog.Builder(MainActivity.this);
-//            logOutConfirmation.setTitle("Log Out");
-//            logOutConfirmation.setMessage("Are you sure you want to Log Out?");
-//            logOutConfirmation.setPositiveButton("Yes", (dialog, which) -> {
-//                vibrator.vibrate(pattern, -1);
-//                FirebaseAuth.getInstance().signOut();
-//                Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-//                login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                startActivity(login);
-//                finish();
-//            });
-//            logOutConfirmation.setNegativeButton("No", (dialog, which) -> {
-//                vibrator.vibrate(pattern, -1);
-//            });
-//            logOutConfirmation.create().show();
+            dialog.show();*/
+            vibrator.vibrate(pattern, -1);
+            AlertDialog.Builder logOutConfirmation = new AlertDialog.Builder(MainActivity.this);
+            logOutConfirmation.setTitle("Log Out");
+            logOutConfirmation.setMessage("Are you sure you want to Log Out?");
+            logOutConfirmation.setPositiveButton("Yes", (dialog, which) -> {
+                vibrator.vibrate(pattern, -1);
+                FirebaseAuth.getInstance().signOut();
+                Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(login);
+                finish();
+            });
+            logOutConfirmation.setNegativeButton("No", (dialog, which) -> {
+                vibrator.vibrate(pattern, -1);
+            });
+            logOutConfirmation.create().show();
         });
         fi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
