@@ -16,7 +16,8 @@ import android.widget.TextView;
 public class InformationActivity extends AppCompatActivity {
     ImageView tileImg,back;
     String tile;
-    TextView status;
+    TextView status,txt1,txt2,txt3;
+    String text1,text2,text3;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -25,10 +26,19 @@ public class InformationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_information);
         tileImg = findViewById(R.id.info);
         status = findViewById(R.id.status);
+        txt1 = findViewById(R.id.txt1);
+        txt2 = findViewById(R.id.txt2);
+        txt3 = findViewById(R.id.txt3);
         //back = findViewById(R.id.back);
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         final long[] pattern = {40, 80};
         tile = getIntent().getStringExtra("tile");
+        text1 = getIntent().getStringExtra("txt1");
+        text2 = getIntent().getStringExtra("txt2");
+        text3 = getIntent().getStringExtra("txt3");
+        txt1.setText(text1);
+        txt2.setText(text2);
+        txt3.setText(text3);
         status.setText(tile);
         if (status.getText().equals("fi")){
             tileImg.setImageResource(R.drawable.fi);

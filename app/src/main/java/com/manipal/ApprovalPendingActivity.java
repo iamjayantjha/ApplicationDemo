@@ -44,6 +44,7 @@ public class ApprovalPendingActivity extends AppCompatActivity {
             Intent login = new Intent(ApprovalPendingActivity.this, LoginActivity.class);
             login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(login);
+            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             finish();
         });
     }

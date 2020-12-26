@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     SearchView searchView;
     ArrayAdapter<String> adapter;
     ArrayList<String> list;
-    String tile;
+    String tile,txt1,txt2,txt3;
     ImageView fi,si,pi,ri,anr,fui,pri,smi,logoutBtn,close,logo;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -170,6 +170,9 @@ public class MainActivity extends AppCompatActivity {
         fi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="fi";
+            txt1="FACULTY WISE";
+            txt2 = "SCHOOL WISE";
+            txt3= "DEPARTMENT WISE";
             Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(fi, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
@@ -177,6 +180,9 @@ public class MainActivity extends AppCompatActivity {
             pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
+            info.putExtra("txt1",txt1);
+            info.putExtra("txt2",txt2);
+            info.putExtra("txt3",txt3);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);
@@ -184,6 +190,9 @@ public class MainActivity extends AppCompatActivity {
         si.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="si";
+            txt1="FACULTY WISE";
+            txt2 = "SCHOOL WISE";
+            txt3= "DEPARTMENT WISE";
             Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(si, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
@@ -191,6 +200,9 @@ public class MainActivity extends AppCompatActivity {
             pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
+            info.putExtra("txt1",txt1);
+            info.putExtra("txt2",txt2);
+            info.putExtra("txt3",txt3);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);
@@ -198,6 +210,9 @@ public class MainActivity extends AppCompatActivity {
         pi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="pi";
+            txt1="FACULTY WISE";
+            txt2 = "SCHOOL WISE";
+            txt3= "DEPARTMENT WISE";
             Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(pi, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
@@ -205,6 +220,9 @@ public class MainActivity extends AppCompatActivity {
             pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
+            info.putExtra("txt1",txt1);
+            info.putExtra("txt2",txt2);
+            info.putExtra("txt3",txt3);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);
@@ -212,6 +230,9 @@ public class MainActivity extends AppCompatActivity {
         ri.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="ri";
+            txt1="FACULTY WISE";
+            txt2 = "SCHOOL WISE";
+            txt3= "DEPARTMENT WISE";
             Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(ri, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
@@ -219,6 +240,9 @@ public class MainActivity extends AppCompatActivity {
             pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
+            info.putExtra("txt1",txt1);
+            info.putExtra("txt2",txt2);
+            info.putExtra("txt3",txt3);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);
@@ -226,6 +250,9 @@ public class MainActivity extends AppCompatActivity {
         anr.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="anr";
+            txt1="FACULTY WISE";
+            txt2 = "SCHOOL WISE";
+            txt3= "DEPARTMENT WISE";
             Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(anr, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
@@ -233,6 +260,9 @@ public class MainActivity extends AppCompatActivity {
             pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
+            info.putExtra("txt1",txt1);
+            info.putExtra("txt2",txt2);
+            info.putExtra("txt3",txt3);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);
@@ -240,6 +270,9 @@ public class MainActivity extends AppCompatActivity {
         fui.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="fui";
+            txt1="DIRECTOR";
+            txt2 = "DEPUTY DIRECTOR";
+            txt3= "ASSISTANT DIRECTOR";
             Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(fui, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
@@ -247,6 +280,9 @@ public class MainActivity extends AppCompatActivity {
             pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
+            info.putExtra("txt1",txt1);
+            info.putExtra("txt2",txt2);
+            info.putExtra("txt3",txt3);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);
@@ -254,6 +290,9 @@ public class MainActivity extends AppCompatActivity {
         pri.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="pri";
+            txt1="FACULTY WISE";
+            txt2 = "SCHOOL WISE";
+            txt3= "DEPARTMENT WISE";
             Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(pri, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
@@ -261,6 +300,9 @@ public class MainActivity extends AppCompatActivity {
             pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
+            info.putExtra("txt1",txt1);
+            info.putExtra("txt2",txt2);
+            info.putExtra("txt3",txt3);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);
@@ -268,6 +310,9 @@ public class MainActivity extends AppCompatActivity {
         smi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
             tile ="smi";
+            txt1="BOARD OF MANAGEMENT";
+            txt2 = "EXECUTIVE COUNCIL";
+            txt3= "ACADEMIC COUNCIL";
             Pair[] pairs = new Pair[3];
             pairs[0] = new Pair<View, String>(smi, "tile");
             pairs[1] = new Pair<View, String>(logo,"logo");
@@ -275,6 +320,9 @@ public class MainActivity extends AppCompatActivity {
             pairs[2] = new Pair<View, String>(searchView, "search");
             info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             info.putExtra("tile",tile);
+            info.putExtra("txt1",txt1);
+            info.putExtra("txt2",txt2);
+            info.putExtra("txt3",txt3);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
             startActivity(info, options.toBundle());
             vibrator.vibrate(pattern, -1);

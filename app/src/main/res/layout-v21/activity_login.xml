@@ -12,7 +12,7 @@
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/manipallogo"/>
+        android:src="@drawable/mu_logo"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username"
@@ -21,10 +21,10 @@
         android:layout_below="@+id/logo"
         android:hint="Username"
         android:layout_marginLeft="10dp"
-        app:helperTextEnabled="true"
-        app:helperText="@string/helper_text"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
+        app:helperTextEnabled="true"
+        app:helperText="@string/helper_text"
         app:endIconMode="clear_text"
         app:startIconDrawable="@drawable/ic_user"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
