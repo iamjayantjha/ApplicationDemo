@@ -11,13 +11,15 @@ import android.os.Vibrator;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 public class InformationActivity extends AppCompatActivity {
-    ImageView tileImg,back;
+    ImageView tileImg,logo;
     String tile;
     TextView status,txt1,txt2,txt3;
     String text1,text2,text3;
+    SearchView searchView;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -37,8 +39,10 @@ public class InformationActivity extends AppCompatActivity {
         text2 = getIntent().getStringExtra("txt2");
         text3 = getIntent().getStringExtra("txt3");
         txt1.setText(text1);
+        logo = findViewById(R.id.logo);
         txt2.setText(text2);
         txt3.setText(text3);
+        searchView = findViewById(R.id.searchBar);
         status.setText(tile);
         if (status.getText().equals("fi")){
             tileImg.setImageResource(R.drawable.fi);
@@ -73,5 +77,16 @@ public class InformationActivity extends AppCompatActivity {
 //            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 //            InformationActivity.this.finish();
         });*/
+
+        txt1.setOnClickListener(v -> {
+            Intent details = new Intent(InformationActivity.this, DetailsActivity.class);
+            Pair[] pairs = new Pair[3];
+            pairs[0] = new Pair<View, String>(logo, "logo");
+            pairs[1] = new Pair<View, String>(txt1,"type");
+            pairs[2] = new Pair<View,String>(searchView, "search");
+            details.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(InformationActivity.this, pairs);
+            startActivity(details, options.toBundle());
+        });
     }
 }

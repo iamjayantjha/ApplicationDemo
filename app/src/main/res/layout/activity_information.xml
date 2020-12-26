@@ -95,6 +95,7 @@
         android:layout_below="@+id/info"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:transitionName="type"
         android:fontFamily="@font/roboto"
         android:text="FACULTY WISE"
         android:textColor="#000000"

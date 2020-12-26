@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
             AlertDialog.Builder logOutConfirmation = new AlertDialog.Builder(MainActivity.this);
             logOutConfirmation.setTitle("Log Out");
             logOutConfirmation.setMessage("Are you sure you want to Log Out?");
+            logOutConfirmation.setCancelable(false);
             logOutConfirmation.setPositiveButton("Yes", (dialog, which) -> {
                 vibrator.vibrate(pattern, -1);
                 FirebaseAuth.getInstance().signOut();
