@@ -18,7 +18,7 @@ public class InformationActivity extends AppCompatActivity {
     ImageView tileImg,logo;
     String tile;
     TextView status,txt1,txt2,txt3;
-    String text1,text2,text3;
+    String text1,text2,text3,headerText;
     SearchView searchView;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -31,7 +31,6 @@ public class InformationActivity extends AppCompatActivity {
         txt1 = findViewById(R.id.txt1);
         txt2 = findViewById(R.id.txt2);
         txt3 = findViewById(R.id.txt3);
-        //back = findViewById(R.id.back);
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         final long[] pattern = {40, 80};
         tile = getIntent().getStringExtra("tile");
@@ -45,45 +44,70 @@ public class InformationActivity extends AppCompatActivity {
         searchView = findViewById(R.id.searchBar);
         status.setText(tile);
         if (status.getText().equals("fi")){
+            headerText = "FACULTY INFORMATION";
             tileImg.setImageResource(R.drawable.fi);
         } else if (status.getText().equals("si")){
+            headerText = "STUDENT INFORMATION";
             tileImg.setImageResource(R.drawable.si);
         } else if (status.getText().equals("pi")){
+            headerText = "PLACEMENT INFORMATION";
             tileImg.setImageResource(R.drawable.pi);
         } else if (status.getText().equals("ri")){
+            headerText = "RESEARCH INFORMATION";
             tileImg.setImageResource(R.drawable.ri);
         }else if (status.getText().equals("anr")){
+            headerText = "AWARDS AND RECOGNITION";
             tileImg.setImageResource(R.drawable.anr);
         }else if (status.getText().equals("fui")){
+            headerText = "FUNCTIONAL UNITS INFORMATION";
             tileImg.setImageResource(R.drawable.fui);
         }else if (status.getText().equals("pri")){
+            headerText = "PROGRAM INFORMATION";
             tileImg.setImageResource(R.drawable.pri);
         }else if (status.getText().equals("smi")){
+            headerText = "STATUTORY MEETING INFORMATION";
             tileImg.setImageResource(R.drawable.smi);
         }
 
-    /*    back.setOnClickListener(v ->{
-            vibrator.vibrate(pattern, -1);
-//            Pair[] pairs = new Pair[1];
-//            pairs[0] = new Pair<View, String>(tileImg, "tile");
-//            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(InformationActivity.this, pairs);
-//            Intent main = new Intent(InformationActivity.this,MainActivity.class);
-//            main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
-//            startActivity(main);
-//            finish();
-//            Intent mainIntent = new Intent(InformationActivity.this, MainActivity.class);
-//            InformationActivity.this.startActivity(mainIntent);
-//            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-//            InformationActivity.this.finish();
-        });*/
 
         txt1.setOnClickListener(v -> {
+            vibrator.vibrate(pattern, -1);
             Intent details = new Intent(InformationActivity.this, DetailsActivity.class);
             Pair[] pairs = new Pair[3];
+            details.putExtra("text",text1);
+            details.putExtra("headerText",headerText);
             pairs[0] = new Pair<View, String>(logo, "logo");
             pairs[1] = new Pair<View, String>(txt1,"type");
             pairs[2] = new Pair<View,String>(searchView, "search");
+           // pairs[3] = new Pair<View,String>(tileImg, "tile");
+            details.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(InformationActivity.this, pairs);
+            startActivity(details, options.toBundle());
+        });
+        txt2.setOnClickListener(v -> {
+            vibrator.vibrate(pattern, -1);
+            Intent details = new Intent(InformationActivity.this, DetailsActivity.class);
+            Pair[] pairs = new Pair[3];
+            details.putExtra("text",text2);
+            details.putExtra("headerText",headerText);
+            pairs[0] = new Pair<View, String>(logo, "logo");
+            pairs[1] = new Pair<View, String>(txt2,"type");
+            pairs[2] = new Pair<View,String>(searchView, "search");
+            // pairs[3] = new Pair<View,String>(tileImg, "tile");
+            details.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(InformationActivity.this, pairs);
+            startActivity(details, options.toBundle());
+        });
+        txt3.setOnClickListener(v -> {
+            vibrator.vibrate(pattern, -1);
+            Intent details = new Intent(InformationActivity.this, DetailsActivity.class);
+            Pair[] pairs = new Pair[3];
+            details.putExtra("text",text3);
+            details.putExtra("headerText",headerText);
+            pairs[0] = new Pair<View, String>(logo, "logo");
+            pairs[1] = new Pair<View, String>(txt3,"type");
+            pairs[2] = new Pair<View,String>(searchView, "search");
+            // pairs[3] = new Pair<View,String>(tileImg, "tile");
             details.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(InformationActivity.this, pairs);
             startActivity(details, options.toBundle());

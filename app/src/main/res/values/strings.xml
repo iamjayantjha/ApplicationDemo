@@ -4,5 +4,6 @@
     <string name="have_credentials"><u>Have certified credentials</u></string>
     <string name="helper_text">Your default ID</string>
     <string name="thanks">your data has been sent for approval from higher authorities once you are approved we will let you in.</string>
+    <string name="todo">TODO</string>
 
 </resources>
