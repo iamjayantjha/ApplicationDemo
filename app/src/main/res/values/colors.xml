@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="view">#000000</color>
     <color name="defaultText">#000000</color>
-    <color name="dialog">#FFFFFF</color>
+    <color name="dialog">#99FFFFFF</color>
     <color name="orange">#FF5722</color>
 </resources>
