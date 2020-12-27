@@ -5,5 +5,7 @@
     <string name="helper_text">Your default ID</string>
     <string name="thanks">your data has been sent for approval from higher authorities once you are approved we will let you in.</string>
     <string name="todo">TODO</string>
+    <string name="logout">Log Out</string>
+    <string name="message">Are you sure you want to Log Out?</string>
 
 </resources>

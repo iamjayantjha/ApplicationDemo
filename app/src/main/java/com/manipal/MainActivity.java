@@ -2,17 +2,15 @@ package com.manipal;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.ActivityOptions;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,9 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.manipal.Model.User;
-
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
@@ -77,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         logoutBtn = findViewById(R.id.logout);
         pri = findViewById(R.id.pri);
         smi = findViewById(R.id.smi);
-        list = new ArrayList<String>();
+        list = new ArrayList<>();
         list.add("Giriraj Methi");
         list.add("Nilanjan Halder");
         list.add("Alok Damre");
@@ -146,9 +142,9 @@ public class MainActivity extends AppCompatActivity {
         });
         logoutBtn.setOnClickListener(v -> {
             title.setVisibility(View.VISIBLE);
-            title.setText("Log Out");
+            title.setText(R.string.logout);
             message.setVisibility(View.VISIBLE);
-            message.setText("Are you sure you want to Log Out?");
+            message.setText(R.string.message);
             vibrator.vibrate(pattern, -1);
             dialog.show();
             /*vibrator.vibrate(pattern, -1);
