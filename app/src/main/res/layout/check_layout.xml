@@ -4,24 +4,24 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/dialog">
 
     <View
         android:id="@+id/firstLine"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@id/headerText"
-        android:background="@android:color/darker_gray"
+        android:background="@color/view"
         android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/headerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="#606060"
-        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textColor="@color/defaultText"
+        android:layout_marginTop="5dp"
         android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
@@ -32,10 +32,10 @@
         android:id="@+id/confirmText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/firstLine"
-        android:textSize="20sp"
-        android:textColor="#606060"
+        android:textSize="18sp"
+        android:textColor="@color/defaultText"
         android:visibility="gone"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -45,48 +45,41 @@
     <View
         android:id="@+id/secondLine"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/darker_gray"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/view"
         android:layout_below="@id/confirmText"
         android:layout_centerHorizontal="true"/>
 
-    <RelativeLayout
+
+    <Button
+        android:id="@+id/cancelBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:textSize="14sp"
+        android:gravity="center"
         android:layout_below="@id/secondLine"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/thirdLine">
+        android:layout_marginLeft="38dp"
+        android:text="CANCEL"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
-        <TextView
-            android:id="@+id/cancelBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CANCEL"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/orange"
-            android:textSize="20sp"/>
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="39dp"
         android:layout_below="@id/secondLine"
-        android:layout_toRightOf="@+id/thirdLine"
+        android:layout_alignRight="@id/thirdLine"
         android:layout_alignParentRight="true">
+    <Button
+        android:id="@+id/okayBtn"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="35dp"
+        android:layout_marginRight="35dp"
+        android:text="OKAY"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_alignParentRight="true" />
 
-        <TextView
-            android:id="@+id/okayBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OKAY"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/orange"
-            android:layout_centerInParent="true"
-            android:textSize="20sp"/>
 
     </RelativeLayout>
 
@@ -95,9 +88,9 @@
 
     <View
         android:id="@+id/thirdLine"
-        android:layout_width="1dp"
-        android:layout_height="43dp"
-        android:background="@android:color/darker_gray"
+        android:layout_width="0.5dp"
+        android:layout_height="39dp"
+        android:background="@color/view"
         android:layout_below="@id/secondLine"
         android:layout_centerHorizontal="true"/>
 

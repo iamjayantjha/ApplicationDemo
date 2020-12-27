@@ -17,6 +17,7 @@ import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -113,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
         });
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         final long[] pattern = {40, 80};
-        TextView okay = dialog.findViewById(R.id.okayBtn);
-        TextView cancel = dialog.findViewById(R.id.cancelBtn);
+        Button okay = dialog.findViewById(R.id.okayBtn);
+        Button cancel = dialog.findViewById(R.id.cancelBtn);
         TextView title = dialog.findViewById(R.id.headerText);
         TextView message = dialog.findViewById(R.id.confirmText);
 //        searchView.setOnClickListener(v -> {
@@ -144,13 +145,13 @@ public class MainActivity extends AppCompatActivity {
             dialog.dismiss();
         });
         logoutBtn.setOnClickListener(v -> {
-            /*title.setVisibility(View.VISIBLE);
+            title.setVisibility(View.VISIBLE);
             title.setText("Log Out");
             message.setVisibility(View.VISIBLE);
             message.setText("Are you sure you want to Log Out?");
             vibrator.vibrate(pattern, -1);
-            dialog.show();*/
-            vibrator.vibrate(pattern, -1);
+            dialog.show();
+            /*vibrator.vibrate(pattern, -1);
             AlertDialog.Builder logOutConfirmation = new AlertDialog.Builder(MainActivity.this);
             logOutConfirmation.setTitle("Log Out");
             logOutConfirmation.setMessage("Are you sure you want to Log Out?");
@@ -166,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
             logOutConfirmation.setNegativeButton("No", (dialog, which) -> {
                 vibrator.vibrate(pattern, -1);
             });
-            logOutConfirmation.create().show();
+            logOutConfirmation.create().show();*/
         });
         fi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);
