@@ -70,6 +70,7 @@ public class InformationActivity extends AppCompatActivity {
         }
 
 
+
         txt1.setOnClickListener(v -> {
             vibrator.vibrate(pattern, -1);
             Intent details = new Intent(InformationActivity.this, DetailsActivity.class);

@@ -2,14 +2,18 @@ package com.manipal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class DetailsActivity extends AppCompatActivity {
     String text1,headerText;
+    ImageView logo;
     TextView header, type, rowHeading, col1, col2, col3, col4, col5, col6, col7, val1, val2, val3, val4, val5, val6, val7;
     RelativeLayout table5, table6, table7, table8;
 
@@ -26,6 +30,7 @@ public class DetailsActivity extends AppCompatActivity {
         col2 = findViewById(R.id.col2);
         col3 = findViewById(R.id.col3);
         col4 = findViewById(R.id.col4);
+        logo = findViewById(R.id.logo);
         col5 = findViewById(R.id.col5);
         col6 = findViewById(R.id.col6);
         col7 = findViewById(R.id.col7);
@@ -131,6 +136,14 @@ public class DetailsActivity extends AppCompatActivity {
            val2.setText("300");
            val3.setText("354");
        }
+
+
+        logo.setOnClickListener(v->{
+            Intent main = new Intent(DetailsActivity.this,MainActivity.class);
+            main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(main);
+            finish();
+        });
 
     }
 }
