@@ -2,6 +2,7 @@ package com.manipal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -130,5 +131,6 @@ public class DetailsActivity extends AppCompatActivity {
            val2.setText("300");
            val3.setText("354");
        }
+
     }
 }
