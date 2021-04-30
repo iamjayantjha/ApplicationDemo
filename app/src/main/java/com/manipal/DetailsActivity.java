@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**Coded By iamjayantjha on 14/12/2020
+ * **/
+
 public class DetailsActivity extends AppCompatActivity {
     String text1,headerText;
     ImageView logo;

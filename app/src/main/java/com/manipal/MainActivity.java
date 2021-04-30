@@ -32,6 +32,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.manipal.Model.User;
 import java.util.ArrayList;
 
+/**Coded By iamjayantjha on 12/12/2020
+ * **/
+
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mCurrentUser;

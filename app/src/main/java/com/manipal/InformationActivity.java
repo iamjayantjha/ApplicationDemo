@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+/**Coded By iamjayantjha on 18/12/2020
+ * **/
+
 public class InformationActivity extends AppCompatActivity {
     ImageView tileImg,logo;
     String tile;

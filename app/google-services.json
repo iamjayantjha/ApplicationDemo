@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "728064808422-3sjsg1jetulb4pn4t4gd5msl9fdmqkck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.manipal",
+            "certificate_hash": "4a3bba9f5bad392983a15abc255adb246cf9bae3"
+          }
+        },
+        {
           "client_id": "728064808422-mqm3suh5mmd11loiun2k0ubj5gnciv45.apps.googleusercontent.com",
           "client_type": 3
         }

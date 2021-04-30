@@ -26,6 +26,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**Coded By iamjayantjha on 12/12/2020
+ * **/
+
 public class LoginActivity extends AppCompatActivity {
 
     TextInputEditText mUsername, mEmail, mPassword;

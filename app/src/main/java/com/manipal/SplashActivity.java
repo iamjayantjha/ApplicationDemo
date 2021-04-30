@@ -14,6 +14,9 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 
+/**Coded By iamjayantjha on 13/12/2020
+ * **/
+
 public class SplashActivity extends AppCompatActivity {
     ImageView logo;
     private final int SPLASH_DISPLAY_LENGTH = 2000;

@@ -19,6 +19,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.manipal.Model.User;
 
+/**Coded By iamjayantjha on 14/12/2020
+ * **/
+
 public class ApprovalPendingActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mCurrentUser;

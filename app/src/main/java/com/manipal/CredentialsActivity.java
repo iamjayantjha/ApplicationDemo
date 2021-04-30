@@ -106,6 +106,10 @@ public class CredentialsActivity extends AppCompatActivity {
                         Toast.makeText(CredentialsActivity.this, "Something went wrong! Please try later", Toast.LENGTH_LONG).show();
                     }
                 });
+            }else
+            {
+                Toast.makeText(getApplicationContext(),"Error occurred",Toast.LENGTH_SHORT).show();
+                pd.dismiss();
             }
         });
     }
