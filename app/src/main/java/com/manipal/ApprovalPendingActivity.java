@@ -37,6 +37,7 @@ public class ApprovalPendingActivity extends AppCompatActivity {
         status = findViewById(R.id.status);
         username = findViewById(R.id.username);
         mCurrentUser = mAuth.getCurrentUser();
+        assert mCurrentUser != null;
         uID = mCurrentUser.getUid();
         logoutBtn = findViewById(R.id.logoutBtn);
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
@@ -66,7 +67,8 @@ public class ApprovalPendingActivity extends AppCompatActivity {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
                 username.setVisibility(View.VISIBLE);
-                username.setText(user.getName()+" ,");
+                String name = user.getName()+" ,";
+                username.setText(name);
                 status.setText(user.getApproved());
                 if (status.getText().equals("Y")||status.getText().equals("y")||status.getText().equals("Yes")||status.getText().equals("yes")){
                     Intent main = new Intent(ApprovalPendingActivity.this,MainActivity.class);

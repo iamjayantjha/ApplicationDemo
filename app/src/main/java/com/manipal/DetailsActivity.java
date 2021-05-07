@@ -1,15 +1,13 @@
 package com.manipal;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**Coded By iamjayantjha on 14/12/2020
  * **/
@@ -50,95 +48,104 @@ public class DetailsActivity extends AppCompatActivity {
         type.setText(text1);
         headerText = getIntent().getStringExtra("headerText");
        header.setText(headerText);
-       if (headerText.equals("FACULTY INFORMATION")){
-           rowHeading.setText("PROFESSOR");
-           col1.setText("ASSISTANT PROFESSOR");
-           col2.setText("ASSOCIATE PROFESSOR");
-           col3.setText("PROFESSOR");
-           val1.setText("220");
-           val2.setText("300");
-           val3.setText("354");
-       }else if (headerText.equals("STUDENT INFORMATION")){
-           table5.setVisibility(View.VISIBLE);
-           rowHeading.setText("STUDENTS INFORMATION");
-           col1.setText("STUDENTS ADMITTED");
-           col2.setText("STUDENTS REGISTERED");
-           col3.setText("WITHDRAWAL");
-           col4.setText("PASSED OUT");
-           val1.setText("220");
-           val2.setText("300");
-           val3.setText("80");
-           val4.setText("120");
-       } else if (headerText.equals("PLACEMENT INFORMATION")){
-           table5.setVisibility(View.VISIBLE);
-           table6.setVisibility(View.VISIBLE);
-           table7.setVisibility(View.VISIBLE);
-           rowHeading.setText("PLACEMENTS");
-           col1.setText("STUDENTS PLACED");
-           col2.setText("PERCENTAGE");
-           col3.setText("COMPANIES VISITED");
-           col4.setText("HIGHEST PACKAGE");
-           col5.setText("AVERAGE PACKAGE");
-           col6.setText("LOWEST PACKAGE");
-           val1.setText("220");
-           val2.setText("92%");
-           val3.setText("150");
-           val4.setText("1.5 Crore");
-           val5.setText("20 Lakhs");
-           val6.setText("12 Lakhs");
-       }else if (headerText.equals("RESEARCH INFORMATION")){
-           table5.setVisibility(View.VISIBLE);
-           table6.setVisibility(View.VISIBLE);
-           table7.setVisibility(View.VISIBLE);
-           table8.setVisibility(View.VISIBLE);
-           rowHeading.setText("RESEARCH");
-           col1.setText("PUBLICATIONS");
-           col2.setText("CONFERENCE PUBLICATIONS");
-           col3.setText("SCOPUS PUBLICATIONS");
-           col4.setText("SCI/SCIE PUBLICATIONS");
-           col5.setText("UGC LISTED");
-           col6.setText("FUNDINGS");
-           col7.setText("IPRs");
-           val1.setText("220");
-           val2.setText("192");
-           val3.setText("150");
-           val4.setText("110");
-           val5.setText("200");
-           val6.setText("50 Lakhs");
-           val7.setText("112");
-       }else if (headerText.equals("AWARDS AND RECOGNITION")){
-           rowHeading.setText("PROFESSOR");
-           col1.setText("ASSISTANT PROFESSOR");
-           col2.setText("ASSOCIATE PROFESSOR");
-           col3.setText("PROFESSOR");
-           val1.setText("220");
-           val2.setText("300");
-           val3.setText("354");
-       }else if (headerText.equals("FUNCTIONAL UNITS INFORMATION")){
-           rowHeading.setText("PROFESSOR");
-           col1.setText("ASSISTANT PROFESSOR");
-           col2.setText("ASSOCIATE PROFESSOR");
-           col3.setText("PROFESSOR");
-           val1.setText("220");
-           val2.setText("300");
-           val3.setText("354");
-       }else if (headerText.equals("PROGRAM INFORMATION")){
-           rowHeading.setText("PROFESSOR");
-           col1.setText("ASSISTANT PROFESSOR");
-           col2.setText("ASSOCIATE PROFESSOR");
-           col3.setText("PROFESSOR");
-           val1.setText("220");
-           val2.setText("300");
-           val3.setText("354");
-       }else if (headerText.equals("STATUTORY MEETING INFORMATION")){
-           rowHeading.setText("PROFESSOR");
-           col1.setText("ASSISTANT PROFESSOR");
-           col2.setText("ASSOCIATE PROFESSOR");
-           col3.setText("PROFESSOR");
-           val1.setText("220");
-           val2.setText("300");
-           val3.setText("354");
-       }
+        switch (headerText) {
+            case "FACULTY INFORMATION":
+                rowHeading.setText("PROFESSOR");
+                col1.setText("ASSISTANT PROFESSOR");
+                col2.setText("ASSOCIATE PROFESSOR");
+                col3.setText("PROFESSOR");
+                val1.setText("220");
+                val2.setText("300");
+                val3.setText("354");
+                break;
+            case "STUDENT INFORMATION":
+                table5.setVisibility(View.VISIBLE);
+                rowHeading.setText("STUDENTS INFORMATION");
+                col1.setText("STUDENTS ADMITTED");
+                col2.setText("STUDENTS REGISTERED");
+                col3.setText("WITHDRAWAL");
+                col4.setText("PASSED OUT");
+                val1.setText("220");
+                val2.setText("300");
+                val3.setText("80");
+                val4.setText("120");
+                break;
+            case "PLACEMENT INFORMATION":
+                table5.setVisibility(View.VISIBLE);
+                table6.setVisibility(View.VISIBLE);
+                table7.setVisibility(View.VISIBLE);
+                rowHeading.setText("PLACEMENTS");
+                col1.setText("STUDENTS PLACED");
+                col2.setText("PERCENTAGE");
+                col3.setText("COMPANIES VISITED");
+                col4.setText("HIGHEST PACKAGE");
+                col5.setText("AVERAGE PACKAGE");
+                col6.setText("LOWEST PACKAGE");
+                val1.setText("220");
+                val2.setText("92%");
+                val3.setText("150");
+                val4.setText("1.5 Crore");
+                val5.setText("20 Lakhs");
+                val6.setText("12 Lakhs");
+                break;
+            case "RESEARCH INFORMATION":
+                table5.setVisibility(View.VISIBLE);
+                table6.setVisibility(View.VISIBLE);
+                table7.setVisibility(View.VISIBLE);
+                table8.setVisibility(View.VISIBLE);
+                rowHeading.setText("RESEARCH");
+                col1.setText("PUBLICATIONS");
+                col2.setText("CONFERENCE PUBLICATIONS");
+                col3.setText("SCOPUS PUBLICATIONS");
+                col4.setText("SCI/SCIE PUBLICATIONS");
+                col5.setText("UGC LISTED");
+                col6.setText("FUNDINGS");
+                col7.setText("IPRs");
+                val1.setText("220");
+                val2.setText("192");
+                val3.setText("150");
+                val4.setText("110");
+                val5.setText("200");
+                val6.setText("50 Lakhs");
+                val7.setText("112");
+                break;
+            case "AWARDS AND RECOGNITION":
+                rowHeading.setText("PROFESSOR");
+                col1.setText("ASSISTANT PROFESSOR");
+                col2.setText("ASSOCIATE PROFESSOR");
+                col3.setText("PROFESSOR");
+                val1.setText("220");
+                val2.setText("300");
+                val3.setText("354");
+                break;
+            case "FUNCTIONAL UNITS INFORMATION":
+                rowHeading.setText("PROFESSOR");
+                col1.setText("ASSISTANT PROFESSOR");
+                col2.setText("ASSOCIATE PROFESSOR");
+                col3.setText("PROFESSOR");
+                val1.setText("220");
+                val2.setText("300");
+                val3.setText("354");
+                break;
+            case "PROGRAM INFORMATION":
+                rowHeading.setText("PROFESSOR");
+                col1.setText("ASSISTANT PROFESSOR");
+                col2.setText("ASSOCIATE PROFESSOR");
+                col3.setText("PROFESSOR");
+                val1.setText("220");
+                val2.setText("300");
+                val3.setText("354");
+                break;
+            case "STATUTORY MEETING INFORMATION":
+                rowHeading.setText("PROFESSOR");
+                col1.setText("ASSISTANT PROFESSOR");
+                col2.setText("ASSOCIATE PROFESSOR");
+                col3.setText("PROFESSOR");
+                val1.setText("220");
+                val2.setText("300");
+                val3.setText("354");
+                break;
+        }
 
 
         logo.setOnClickListener(v->{

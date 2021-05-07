@@ -1,30 +1,26 @@
 package com.manipal;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
 
 /**Coded By iamjayantjha on 12/12/2020
  * **/
@@ -62,9 +58,9 @@ public class LoginActivity extends AppCompatActivity {
             pd = new ProgressDialog(LoginActivity.this);
             pd.setMessage("Please Wait..");
             pd.show();
-            String str_username = mUsername.getText().toString();
-            String str_email = mEmail.getText().toString().trim();
-            String str_password = mPassword.getText().toString().trim();
+            String str_username = Objects.requireNonNull(mUsername.getText()).toString();
+            String str_email = Objects.requireNonNull(mEmail.getText()).toString().trim();
+            String str_password = Objects.requireNonNull(mPassword.getText()).toString().trim();
             if (TextUtils.isEmpty(str_email)||TextUtils.isEmpty(str_password)||TextUtils.isEmpty(str_username)){
                 pd.dismiss();
                 Toast.makeText(LoginActivity.this,"All fields are required..",Toast.LENGTH_LONG).show();
@@ -72,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 reference = FirebaseDatabase.getInstance().getReference();
                 mAuth.signInWithEmailAndPassword(str_email,str_password).addOnCompleteListener(LoginActivity.this, task -> {
                     if (task.isSuccessful()){
-                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
+                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(Objects.requireNonNull(mAuth.getCurrentUser()).getUid());
                         reference.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -1,10 +1,5 @@
 package com.manipal;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.Intent;
@@ -22,6 +17,11 @@ import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.manipal.Model.User;
+
 import java.util.ArrayList;
 
 /**Coded By iamjayantjha on 12/12/2020
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         anr = findViewById(R.id.anr);
         dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.check_layout);
-        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.background));
+        dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(this,R.drawable.background));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
        // dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
