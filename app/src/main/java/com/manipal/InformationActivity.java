@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-/**Coded By iamjayantjha on 18/12/2020
+/**Coded By iamjayantjha on 26/04/2021
  * **/
 
 public class InformationActivity extends AppCompatActivity {

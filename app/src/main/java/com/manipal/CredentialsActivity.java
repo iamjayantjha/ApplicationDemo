@@ -20,6 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Objects;
 
+/**Coded By iamjayantjha on 20/04/2021
+ * **/
+
 public class CredentialsActivity extends AppCompatActivity {
     TextInputEditText mUsername, mName, mEmail, mPassword, mDepartment;
     Button regBtn;

@@ -14,7 +14,7 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 
-/**Coded By iamjayantjha on 13/12/2020
+/**Coded By iamjayantjha on 18/04/2021
  * **/
 
 public class SplashActivity extends AppCompatActivity {

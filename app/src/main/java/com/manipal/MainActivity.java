@@ -33,7 +33,7 @@ import com.manipal.Model.User;
 
 import java.util.ArrayList;
 
-/**Coded By iamjayantjha on 12/12/2020
+/**Coded By iamjayantjha on 18/04/2021
  * **/
 
 public class MainActivity extends AppCompatActivity {
@@ -151,23 +151,6 @@ public class MainActivity extends AppCompatActivity {
             message.setText(R.string.message);
             vibrator.vibrate(pattern, -1);
             dialog.show();
-            /*vibrator.vibrate(pattern, -1);
-            AlertDialog.Builder logOutConfirmation = new AlertDialog.Builder(MainActivity.this);
-            logOutConfirmation.setTitle("Log Out");
-            logOutConfirmation.setMessage("Are you sure you want to Log Out?");
-            logOutConfirmation.setCancelable(false);
-            logOutConfirmation.setPositiveButton("Yes", (dialog, which) -> {
-                vibrator.vibrate(pattern, -1);
-                FirebaseAuth.getInstance().signOut();
-                Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-                login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(login);
-                finish();
-            });
-            logOutConfirmation.setNegativeButton("No", (dialog, which) -> {
-                vibrator.vibrate(pattern, -1);
-            });
-            logOutConfirmation.create().show();*/
         });
         fi.setOnClickListener(v ->{
             Intent info = new Intent(MainActivity.this, InformationActivity.class);

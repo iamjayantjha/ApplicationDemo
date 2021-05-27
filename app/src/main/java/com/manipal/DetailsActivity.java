@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-/**Coded By iamjayantjha on 14/12/2020
+/**Coded By iamjayantjha on 21/04/2020
  * **/
 
 public class DetailsActivity extends AppCompatActivity {
