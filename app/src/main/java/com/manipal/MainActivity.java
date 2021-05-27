@@ -49,15 +49,18 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> list;
     String tile,txt1,txt2,txt3;
     ImageView fi,si,pi,ri,anr,fui,pri,smi,logoutBtn,close,logo;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       /* mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         status = findViewById(R.id.status);
         mCurrentUser = mAuth.getCurrentUser();
-        fi = findViewById(R.id.fi);
+
+    }
+      /*  fi = findViewById(R.id.fi);
         rl = findViewById(R.id.info);
         lv = findViewById(R.id.listView);
         searchView = findViewById(R.id.searchBar);
@@ -313,41 +316,41 @@ public class MainActivity extends AppCompatActivity {
             vibrator.vibrate(pattern, -1);
         });
     }
+*/
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    if (mCurrentUser == null){
-        Intent main = new Intent(MainActivity.this, LoginActivity.class);
-        main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(main);
-        finish();
-    }else
-    {
-        reference = FirebaseDatabase.getInstance().getReference("Users").child(mCurrentUser.getUid());
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (getApplicationContext() == null){
-                    return;
-                }
-                User user = dataSnapshot.getValue(User.class);
-                assert user != null;
-                status.setText(user.getApproved());
-                if (status.getText().equals("N")||status.getText().equals("n")||status.getText().equals("No")||status.getText().equals("no")){
-                    Intent main = new Intent(MainActivity.this,ApprovalPendingActivity.class);
-                    main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(main);
-                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
-                    finish();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+        @Override
+        protected void onStart () {
+            super.onStart();
+            if (mCurrentUser == null) {
+                Intent main = new Intent(MainActivity.this, LoginActivity.class);
+                main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(main);
+                finish();
+            } else {
+                reference = FirebaseDatabase.getInstance().getReference("Users").child(mCurrentUser.getUid());
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (getApplicationContext() == null) {
+                            return;
+                        }
+                        User user = dataSnapshot.getValue(User.class);
+                        assert user != null;
+                        status.setText(user.getApproved());
+                        if (status.getText().equals("N") || status.getText().equals("n") || status.getText().equals("No") || status.getText().equals("no")) {
+                            Intent main = new Intent(MainActivity.this, ApprovalPendingActivity.class);
+                            main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(main);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                            finish();
+                        }
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
-        });
-    }*/
+        }
     }
-
-}

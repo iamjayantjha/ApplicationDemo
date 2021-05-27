@@ -17,6 +17,7 @@
         android:id="@+id/searchPanel"
         android:layout_below="@+id/logo"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content">
 
 
@@ -86,6 +87,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_below="@id/searchPanel">
 
         <ImageView
