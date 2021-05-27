@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAuth = FirebaseAuth.getInstance();
+       /* mAuth = FirebaseAuth.getInstance();
         status = findViewById(R.id.status);
         mCurrentUser = mAuth.getCurrentUser();
         fi = findViewById(R.id.fi);
@@ -347,7 +347,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
     }
 
 }

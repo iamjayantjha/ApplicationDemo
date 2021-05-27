@@ -17,6 +17,7 @@
         android:id="@+id/searchPanel"
         android:layout_below="@+id/logo"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content">
 
 
@@ -31,6 +32,7 @@
             android:transitionName="back"
             android:layout_marginTop="5dp"
             android:layout_alignParentStart="true"
+            android:visibility="gone"
             android:layout_toLeftOf="@id/searchBar"
             android:src="@drawable/ic_back"
             android:layout_alignParentLeft="true" />
@@ -42,6 +44,7 @@
             android:voiceIcon="@drawable/ic_mic"
             android:transitionName="search"
             android:iconifiedByDefault="true"
+            android:visibility="gone"
             android:layout_centerHorizontal="true"
             android:layout_width="230dp"
             android:layout_height="wrap_content">
@@ -84,6 +87,7 @@
     <RelativeLayout
         android:id="@+id/info"
         android:layout_marginTop="10dp"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/searchPanel">
