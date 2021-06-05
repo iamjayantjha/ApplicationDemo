@@ -29,6 +29,8 @@ public class ApprovalPendingActivity extends AppCompatActivity {
     TextView status,username;
     String uID;
     Button logoutBtn;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

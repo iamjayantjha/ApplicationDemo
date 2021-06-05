@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
     SearchView searchView;
     ArrayAdapter<String> adapter;
     ArrayList<String> list;
-    String tile,txt1,txt2,txt3;
-    ImageView fi,si,pi,ri,anr,fui,pri,smi,logoutBtn,close,logo;
+    ImageView logoutBtn,close,settings;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -58,28 +57,16 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         status = findViewById(R.id.status);
         mCurrentUser = mAuth.getCurrentUser();
-
-    }
-      /*  fi = findViewById(R.id.fi);
-        rl = findViewById(R.id.info);
-        lv = findViewById(R.id.listView);
-        searchView = findViewById(R.id.searchBar);
-        si = findViewById(R.id.si);
-        pi = findViewById(R.id.pi);
-        ri = findViewById(R.id.ri);
-        close = findViewById(R.id.close);
-        logo = findViewById(R.id.logo);
-        anr = findViewById(R.id.anr);
         dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.check_layout);
         dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(this,R.drawable.background));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
-       // dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
-        fui = findViewById(R.id.fui);
         logoutBtn = findViewById(R.id.logout);
-        pri = findViewById(R.id.pri);
-        smi = findViewById(R.id.smi);
+        lv = findViewById(R.id.listView);
+        settings = findViewById(R.id.settings);
+        searchView = findViewById(R.id.searchBar);
+        close = findViewById(R.id.close);
         list = new ArrayList<>();
         list.add("Giriraj Methi");
         list.add("Nilanjan Halder");
@@ -100,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("Lav Maheshwari");
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         lv.setAdapter(adapter);
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        final long[] pattern = {40, 80};
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -109,27 +98,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 close.setVisibility(View.VISIBLE);
-                rl.setVisibility(View.GONE);
+                settings.setVisibility(View.GONE);
                 lv.setVisibility(View.VISIBLE);
                 adapter.getFilter().filter(newText);
                 return false;
             }
         });
-        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-        final long[] pattern = {40, 80};
+        settings.setOnClickListener(v -> {
+            vibrator.vibrate(pattern,-1);
+            Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+            settingsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(settingsIntent);
+            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+        });
         Button okay = dialog.findViewById(R.id.okayBtn);
         Button cancel = dialog.findViewById(R.id.cancelBtn);
         TextView title = dialog.findViewById(R.id.headerText);
         TextView message = dialog.findViewById(R.id.confirmText);
-//        searchView.setOnClickListener(v -> {
-//            vibrator.vibrate(pattern, -1);
-//            rl.setVisibility(View.GONE);
-//            lv.setVisibility(View.VISIBLE);
-//        });
         close.setOnClickListener(v -> {
             vibrator.vibrate(pattern, -1);
-            rl.setVisibility(View.VISIBLE);
             lv.setVisibility(View.GONE);
+            settings.setVisibility(View.VISIBLE);
             close.setVisibility(View.GONE);
             searchView.setFocusable(false);
         });
@@ -155,168 +144,8 @@ public class MainActivity extends AppCompatActivity {
             vibrator.vibrate(pattern, -1);
             dialog.show();
         });
-        fi.setOnClickListener(v ->{
-            Intent info = new Intent(MainActivity.this, InformationActivity.class);
-            tile ="fi";
-            txt1="FACULTY WISE";
-            txt2 = "SCHOOL WISE";
-            txt3= "DEPARTMENT WISE";
-            Pair[] pairs = new Pair[3];
-            pairs[0] = new Pair<View, String>(fi, "tile");
-            pairs[1] = new Pair<View, String>(logo,"logo");
-          //  pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[2] = new Pair<View, String>(searchView, "search");
-            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            info.putExtra("tile",tile);
-            info.putExtra("txt1",txt1);
-            info.putExtra("txt2",txt2);
-            info.putExtra("txt3",txt3);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-            startActivity(info, options.toBundle());
-            vibrator.vibrate(pattern, -1);
-        });
-        si.setOnClickListener(v ->{
-            Intent info = new Intent(MainActivity.this, InformationActivity.class);
-            tile ="si";
-            txt1="FACULTY WISE";
-            txt2 = "SCHOOL WISE";
-            txt3= "DEPARTMENT WISE";
-            Pair[] pairs = new Pair[3];
-            pairs[0] = new Pair<View, String>(si, "tile");
-            pairs[1] = new Pair<View, String>(logo,"logo");
-           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[2] = new Pair<View, String>(searchView, "search");
-            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            info.putExtra("tile",tile);
-            info.putExtra("txt1",txt1);
-            info.putExtra("txt2",txt2);
-            info.putExtra("txt3",txt3);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-            startActivity(info, options.toBundle());
-            vibrator.vibrate(pattern, -1);
-        });
-        pi.setOnClickListener(v ->{
-            Intent info = new Intent(MainActivity.this, InformationActivity.class);
-            tile ="pi";
-            txt1="FACULTY WISE";
-            txt2 = "SCHOOL WISE";
-            txt3= "DEPARTMENT WISE";
-            Pair[] pairs = new Pair[3];
-            pairs[0] = new Pair<View, String>(pi, "tile");
-            pairs[1] = new Pair<View, String>(logo,"logo");
-           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[2] = new Pair<View, String>(searchView, "search");
-            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            info.putExtra("tile",tile);
-            info.putExtra("txt1",txt1);
-            info.putExtra("txt2",txt2);
-            info.putExtra("txt3",txt3);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-            startActivity(info, options.toBundle());
-            vibrator.vibrate(pattern, -1);
-        });
-        ri.setOnClickListener(v ->{
-            Intent info = new Intent(MainActivity.this, InformationActivity.class);
-            tile ="ri";
-            txt1="FACULTY WISE";
-            txt2 = "SCHOOL WISE";
-            txt3= "DEPARTMENT WISE";
-            Pair[] pairs = new Pair[3];
-            pairs[0] = new Pair<View, String>(ri, "tile");
-            pairs[1] = new Pair<View, String>(logo,"logo");
-            //pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[2] = new Pair<View, String>(searchView, "search");
-            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            info.putExtra("tile",tile);
-            info.putExtra("txt1",txt1);
-            info.putExtra("txt2",txt2);
-            info.putExtra("txt3",txt3);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-            startActivity(info, options.toBundle());
-            vibrator.vibrate(pattern, -1);
-        });
-        anr.setOnClickListener(v ->{
-            Intent info = new Intent(MainActivity.this, InformationActivity.class);
-            tile ="anr";
-            txt1="FACULTY WISE";
-            txt2 = "SCHOOL WISE";
-            txt3= "DEPARTMENT WISE";
-            Pair[] pairs = new Pair[3];
-            pairs[0] = new Pair<View, String>(anr, "tile");
-            pairs[1] = new Pair<View, String>(logo,"logo");
-           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[2] = new Pair<View, String>(searchView, "search");
-            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            info.putExtra("tile",tile);
-            info.putExtra("txt1",txt1);
-            info.putExtra("txt2",txt2);
-            info.putExtra("txt3",txt3);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-            startActivity(info, options.toBundle());
-            vibrator.vibrate(pattern, -1);
-        });
-        fui.setOnClickListener(v ->{
-            Intent info = new Intent(MainActivity.this, InformationActivity.class);
-            tile ="fui";
-            txt1="DIRECTOR";
-            txt2 = "DEPUTY DIRECTOR";
-            txt3= "ASSISTANT DIRECTOR";
-            Pair[] pairs = new Pair[3];
-            pairs[0] = new Pair<View, String>(fui, "tile");
-            pairs[1] = new Pair<View, String>(logo,"logo");
-           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[2] = new Pair<View, String>(searchView, "search");
-            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            info.putExtra("tile",tile);
-            info.putExtra("txt1",txt1);
-            info.putExtra("txt2",txt2);
-            info.putExtra("txt3",txt3);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-            startActivity(info, options.toBundle());
-            vibrator.vibrate(pattern, -1);
-        });
-        pri.setOnClickListener(v ->{
-            Intent info = new Intent(MainActivity.this, InformationActivity.class);
-            tile ="pri";
-            txt1="FACULTY WISE";
-            txt2 = "SCHOOL WISE";
-            txt3= "DEPARTMENT WISE";
-            Pair[] pairs = new Pair[3];
-            pairs[0] = new Pair<View, String>(pri, "tile");
-            pairs[1] = new Pair<View, String>(logo,"logo");
-           // pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[2] = new Pair<View, String>(searchView, "search");
-            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            info.putExtra("tile",tile);
-            info.putExtra("txt1",txt1);
-            info.putExtra("txt2",txt2);
-            info.putExtra("txt3",txt3);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-            startActivity(info, options.toBundle());
-            vibrator.vibrate(pattern, -1);
-        });
-        smi.setOnClickListener(v ->{
-            Intent info = new Intent(MainActivity.this, InformationActivity.class);
-            tile ="smi";
-            txt1="BOARD OF MANAGEMENT";
-            txt2 = "EXECUTIVE COUNCIL";
-            txt3= "ACADEMIC COUNCIL";
-            Pair[] pairs = new Pair[3];
-            pairs[0] = new Pair<View, String>(smi, "tile");
-            pairs[1] = new Pair<View, String>(logo,"logo");
-          //  pairs[2] = new Pair<View, String>(logoutBtn, "back");
-            pairs[2] = new Pair<View, String>(searchView, "search");
-            info.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            info.putExtra("tile",tile);
-            info.putExtra("txt1",txt1);
-            info.putExtra("txt2",txt2);
-            info.putExtra("txt3",txt3);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-            startActivity(info, options.toBundle());
-            vibrator.vibrate(pattern, -1);
-        });
+
     }
-*/
 
         @Override
         protected void onStart () {
