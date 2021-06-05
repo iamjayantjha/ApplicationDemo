@@ -1,19 +1,16 @@
 package com.manipal;
 
-import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -42,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference reference;
     TextView status;
     Dialog dialog;
-    RelativeLayout rl;
     ListView lv;
     SearchView searchView;
     ArrayAdapter<String> adapter;
