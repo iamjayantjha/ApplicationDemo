@@ -17,8 +17,8 @@
         android:textSize="20sp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/profilePic"
         android:layout_below="@+id/Heading"
         android:layout_centerHorizontal="true"

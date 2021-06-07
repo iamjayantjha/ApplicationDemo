@@ -19,6 +19,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
     SearchView searchView;
     ArrayAdapter<String> adapter;
     ArrayList<String> list;
-    ImageView logoutBtn,close,settings;
+    MaterialCardView card1,card2,card3,card4,card5,card6;
+    ImageView logoutBtn,close,settings,notification;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -52,7 +54,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         status = findViewById(R.id.status);
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        final long[] pattern = {40, 80};
         mCurrentUser = mAuth.getCurrentUser();
+        card1 = findViewById(R.id.card1);
+        card2 = findViewById(R.id.card2);
+        card3 = findViewById(R.id.card3);
+        card4 = findViewById(R.id.card4);
+        card5 = findViewById(R.id.card5);
+        card6 = findViewById(R.id.card6);
+        notification = findViewById(R.id.notification);
         dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.check_layout);
         dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(this,R.drawable.background));
@@ -83,10 +94,31 @@ public class MainActivity extends AppCompatActivity {
         list.add("Lav Maheshwari");
         list.add("Bhavana Saini");
         list.add("Arpit Kothari");
+        notification.setOnClickListener(v -> {
+            vibrator.vibrate(pattern,-1);
+        });
+        card1.setOnClickListener(v -> {
+            vibrator.vibrate(pattern,-1);
+            startActivity(new Intent(MainActivity.this,AttendanceActivity.class));
+            overridePendingTransition(R.anim.slide_in_top,R.anim.slide_out_bottom);
+        });
+        card2.setOnClickListener(v -> {
+            vibrator.vibrate(pattern,-1);
+        });
+        card3.setOnClickListener(v -> {
+            vibrator.vibrate(pattern,-1);
+        });
+        card4.setOnClickListener(v -> {
+            vibrator.vibrate(pattern,-1);
+        });
+        card5.setOnClickListener(v -> {
+            vibrator.vibrate(pattern,-1);
+        });
+        card6.setOnClickListener(v -> {
+            vibrator.vibrate(pattern,-1);
+        });
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         lv.setAdapter(adapter);
-        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-        final long[] pattern = {40, 80};
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
