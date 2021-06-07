@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("Dr. Dinesh Yadav");
         list.add("Mahesh Kumar Dubey");
         list.add("Lav Maheshwari");
+        list.add("Bhavana Saini");
+        list.add("Arpit Kothari");
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         lv.setAdapter(adapter);
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
