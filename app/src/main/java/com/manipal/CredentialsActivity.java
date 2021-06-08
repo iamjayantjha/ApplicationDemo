@@ -107,13 +107,51 @@ public class CredentialsActivity extends AppCompatActivity {
                         newMap.put("subject_6", "");
                         reference.setValue(newMap).addOnCompleteListener(task2 -> {
                             if (task2.isSuccessful()){
-                                pd.dismiss();
-                                Intent main = new Intent(CredentialsActivity.this, ApprovalPendingActivity.class);
-                                main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(main);
-                                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-                                finish();
+                                reference = FirebaseDatabase.getInstance().getReference().child("Marks").child(userUid);
+                                HashMap<String, Object> newMap1 = new HashMap<>();
+                                newMap1.put("subject_1","");
+                                newMap1.put("subject_2","");
+                                newMap1.put("subject_3","");
+                                newMap1.put("subject_4", "");
+                                newMap1.put("subject_5", "");
+                                newMap1.put("subject_6", "");
+                                reference.setValue(newMap1).addOnCompleteListener(task3 -> {
+                                    if (task3.isSuccessful()){
+                                        reference = FirebaseDatabase.getInstance().getReference().child("Grades").child(userUid);
+                                        HashMap<String, Object> newMap2 = new HashMap<>();
+                                        newMap2.put("subject_1","");
+                                        newMap2.put("subject_2","");
+                                        newMap2.put("subject_3","");
+                                        newMap2.put("subject_4", "");
+                                        newMap2.put("subject_5", "");
+                                        newMap2.put("subject_6", "");
+                                        reference.setValue(newMap2).addOnCompleteListener(task4 -> {
+                                            if(task4.isSuccessful()){
+                                                reference = FirebaseDatabase.getInstance().getReference().child("Certificates").child(userUid);
+                                                HashMap<String, Object> newMap3 = new HashMap<>();
+                                                newMap3.put("link","");
+                                                reference.setValue(newMap3).addOnCompleteListener(task5 -> {
+                                                    if (task5.isSuccessful()){
+                                                        reference = FirebaseDatabase.getInstance().getReference().child("Time Table").child(userUid);
+                                                        HashMap<String, Object> newMap4 = new HashMap<>();
+                                                        newMap4.put("link","");
+                                                        reference.setValue(newMap4).addOnCompleteListener(task6 -> {
+                                                            if (task6.isSuccessful()){
+                                                                pd.dismiss();
+                                                                Intent main = new Intent(CredentialsActivity.this, ApprovalPendingActivity.class);
+                                                                main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                                main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                                startActivity(main);
+                                                                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                                                                finish();
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
                             }
                         });
                     }else {

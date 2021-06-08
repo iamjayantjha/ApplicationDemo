@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
         });
         card2.setOnClickListener(v -> {
             vibrator.vibrate(pattern,-1);
+            startActivity(new Intent(MainActivity.this, MarksActivity.class));
+            overridePendingTransition(R.anim.slide_in_top,R.anim.slide_out_bottom);
         });
         card3.setOnClickListener(v -> {
             vibrator.vibrate(pattern,-1);
