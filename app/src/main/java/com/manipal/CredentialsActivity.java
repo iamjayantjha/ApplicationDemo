@@ -9,8 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -90,16 +93,29 @@ public class CredentialsActivity extends AppCompatActivity {
                 hashMap.put("department", department);
                 hashMap.put("email", email);
                 hashMap.put("approved", "N");
+                hashMap.put("cycle", "");
                 hashMap.put("imageURL","https://firebasestorage.googleapis.com/v0/b/vani-chat-9b86a.appspot.com/o/profile.jpg?alt=media&token=9f42e809-127c-49e2-9a53-351cd8d38104");
                 reference.setValue(hashMap).addOnCompleteListener(task1 -> {
                     if (task1.isSuccessful()){
-                        pd.dismiss();
-                        Intent main = new Intent(CredentialsActivity.this, ApprovalPendingActivity.class);
-                        main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(main);
-                        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-                        finish();
+                        reference = FirebaseDatabase.getInstance().getReference().child("Attendance").child(userUid);
+                        HashMap<String, Object> newMap = new HashMap<>();
+                        newMap.put("subject_1","");
+                        newMap.put("subject_2","");
+                        newMap.put("subject_3","");
+                        newMap.put("subject_4", "");
+                        newMap.put("subject_5", "");
+                        newMap.put("subject_6", "");
+                        reference.setValue(newMap).addOnCompleteListener(task2 -> {
+                            if (task2.isSuccessful()){
+                                pd.dismiss();
+                                Intent main = new Intent(CredentialsActivity.this, ApprovalPendingActivity.class);
+                                main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(main);
+                                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                                finish();
+                            }
+                        });
                     }else {
                         pd.dismiss();
                         Toast.makeText(CredentialsActivity.this, "Something went wrong! Please try later", Toast.LENGTH_LONG).show();

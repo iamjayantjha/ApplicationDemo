@@ -156,6 +156,7 @@ public class SettingsActivity extends AppCompatActivity {
                 hashMap.put("email", user.getEmail());
                 hashMap.put("approved", user.getApproved());
                 hashMap.put("imageURL",myUrl);
+                hashMap.put("cycle",user.getCycle());
                 hashMap.put("department",user.getDepartment());
                 hashMap.put("username",user.getUsername());
                 reference.setValue(hashMap);

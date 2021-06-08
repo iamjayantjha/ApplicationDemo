@@ -8,6 +8,7 @@ public class User {
     private String email;
     private String department;
     private String imageURL;
+    private String cycle;
 
     public User() {
     }
@@ -66,5 +67,13 @@ public class User {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public String getCycle() {
+        return cycle;
+    }
+
+    public void setCycle(String cycle) {
+        this.cycle = cycle;
     }
 }
