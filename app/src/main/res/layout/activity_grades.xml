@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/defaultText"
                 android:textStyle="bold"
-                android:text="Marks"
+                android:text="Grades"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"/>
 

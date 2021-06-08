@@ -18,24 +18,24 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.manipal.Model.Attendance;
+import com.manipal.Model.Grades;
 import com.manipal.Model.Marks;
 import com.manipal.Model.User;
 
-public class MarksActivity extends AppCompatActivity {
+public class GradesActivity extends AppCompatActivity {
     ImageView logo;
     TextView header, rowHeading,rowHeading_2, col1, col2, col3, col4, col5, col6, col7, val1, val2, val3, val4, val5, val6, val7;
     RelativeLayout table5, table6, table7, table8;
     FirebaseAuth mAuth;
     FirebaseUser mCurrentUser;
     DatabaseReference reference,newReference;
-    Marks marks;
+    Grades grades;
     User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_marks);
+        setContentView(R.layout.activity_grades);
         header = findViewById(R.id.header);
         table5 = findViewById(R.id.table5);
         table6 = findViewById(R.id.table6);
@@ -60,7 +60,7 @@ public class MarksActivity extends AppCompatActivity {
         table8 = findViewById(R.id.table8);
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
-        newReference = FirebaseDatabase.getInstance().getReference("Marks").child(mCurrentUser.getUid());
+        newReference = FirebaseDatabase.getInstance().getReference("Grades").child(mCurrentUser.getUid());
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         final long[] pattern = {80,40};
         newReference.addValueEventListener(new ValueEventListener() {
@@ -69,14 +69,14 @@ public class MarksActivity extends AppCompatActivity {
                 if (getApplicationContext() == null) {
                     return;
                 }
-                marks = dataSnapshot.getValue(Marks.class);
-                assert marks != null;
-                val1.setText(marks.getSubject_1());
-                val2.setText(marks.getSubject_2());
-                val3.setText(marks.getSubject_3());
-                val4.setText(marks.getSubject_4());
-                val5.setText(marks.getSubject_5());
-                val6.setText(marks.getSubject_6());
+                grades = dataSnapshot.getValue(Grades.class);
+                assert grades != null;
+                val1.setText(grades.getSubject_1());
+                val2.setText(grades.getSubject_2());
+                val3.setText(grades.getSubject_3());
+                val4.setText(grades.getSubject_4());
+                val5.setText(grades.getSubject_5());
+                val6.setText(grades.getSubject_6());
             }
 
             @Override
@@ -121,18 +121,18 @@ public class MarksActivity extends AppCompatActivity {
         });
 
         logo.setOnClickListener(v->{
-            Intent main = new Intent(MarksActivity.this,MainActivity.class);
+            Intent main = new Intent(GradesActivity.this,MainActivity.class);
             main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(main);
             finish();
         });
-
     }
+
 
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        MarksActivity.this.finish();
+        GradesActivity.this.finish();
         overridePendingTransition(R.anim.slide_in_bottom,R.anim.slide_out_top);
     }
 }
