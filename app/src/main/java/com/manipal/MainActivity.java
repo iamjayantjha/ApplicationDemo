@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("Arpit Kothari");
         notification.setOnClickListener(v -> {
             vibrator.vibrate(pattern,-1);
+            startActivity(new Intent(MainActivity.this, NotificationActivity.class));
+            overridePendingTransition(R.anim.slide_in_bottom,R.anim.slide_out_top);
         });
         card1.setOnClickListener(v -> {
             vibrator.vibrate(pattern,-1);

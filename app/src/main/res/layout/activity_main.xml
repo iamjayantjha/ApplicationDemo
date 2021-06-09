@@ -304,7 +304,7 @@
                     android:id="@+id/feesImg"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_fees"
+                    android:src="@drawable/ic_call"
                     android:layout_centerInParent="true"/>
 
                 <TextView
@@ -312,7 +312,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/feesImg"
                     android:layout_marginTop="15dp"
-                    android:text="Pay your Fees"
+                    android:text="Contact Information"
                     android:layout_centerHorizontal="true"/>
 
             </RelativeLayout>
