@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Zerostic">
-        <activity android:name=".NotificationActivity"></activity>
+        <activity android:name=".Model.TimeTableActivity"></activity>
+        <activity android:name=".NotificationActivity" />
         <activity android:name=".GradesActivity" />
         <activity android:name=".MarksActivity" />
         <activity android:name=".AttendanceActivity" />

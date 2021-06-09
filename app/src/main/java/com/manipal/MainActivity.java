@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.manipal.Model.Grades;
+import com.manipal.Model.TimeTableActivity;
 import com.manipal.Model.User;
 
 import java.util.ArrayList;
@@ -112,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
         });
         card3.setOnClickListener(v -> {
             vibrator.vibrate(pattern,-1);
+            startActivity(new Intent(MainActivity.this, TimeTableActivity.class));
+            overridePendingTransition(R.anim.slide_in_top,R.anim.slide_out_bottom);
         });
         card4.setOnClickListener(v -> {
             vibrator.vibrate(pattern,-1);

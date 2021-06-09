@@ -137,6 +137,11 @@ public class CredentialsActivity extends AppCompatActivity {
                                                         newMap4.put("link","");
                                                         reference.setValue(newMap4).addOnCompleteListener(task6 -> {
                                                             if (task6.isSuccessful()){
+                                                                reference = FirebaseDatabase.getInstance().getReference().child("Notification").child(userUid);
+                                                                HashMap<String, Object> newMap5 = new HashMap<>();
+                                                                newMap5.put("notification","");
+                                                                reference.setValue(newMap5).addOnCompleteListener(task7 -> {
+                                                                    if (task7.isSuccessful()){
                                                                 pd.dismiss();
                                                                 Intent main = new Intent(CredentialsActivity.this, ApprovalPendingActivity.class);
                                                                 main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -144,6 +149,8 @@ public class CredentialsActivity extends AppCompatActivity {
                                                                 startActivity(main);
                                                                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
                                                                 finish();
+                                                                    }
+                                                                });
                                                             }
                                                         });
                                                     }
