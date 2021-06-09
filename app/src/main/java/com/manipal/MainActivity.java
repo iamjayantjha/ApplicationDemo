@@ -128,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
         });
         card6.setOnClickListener(v -> {
             vibrator.vibrate(pattern,-1);
+            startActivity(new Intent(MainActivity.this,ContactInformationActivity.class));
+            overridePendingTransition(R.anim.slide_in_top,R.anim.slide_out_bottom);
         });
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         lv.setAdapter(adapter);
