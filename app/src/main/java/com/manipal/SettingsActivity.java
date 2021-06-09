@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,12 +49,14 @@ public class SettingsActivity extends AppCompatActivity {
     StorageTask uploadTask;
     StorageReference storageReference;
     User user;
+    ImageView logo;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        logo = findViewById(R.id.logo);
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -90,6 +93,13 @@ public class SettingsActivity extends AppCompatActivity {
         profilePic.setOnClickListener(v -> {
             vibrator.vibrate(pattern, -1);
             choosePicture();
+        });
+
+        logo.setOnClickListener(v->{
+            Intent main = new Intent(SettingsActivity.this, MainActivity.class);
+            main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(main);
+            finish();
         });
     }
 

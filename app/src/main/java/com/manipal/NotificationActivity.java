@@ -3,7 +3,9 @@ package com.manipal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,11 +23,13 @@ public class NotificationActivity extends AppCompatActivity {
     DatabaseReference newReference;
     Notification notification;
     TextView notificationText;
+    ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
+        logo = findViewById(R.id.logo);
         notificationText = findViewById(R.id.notification);
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
@@ -47,6 +51,13 @@ public class NotificationActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+
+        logo.setOnClickListener(v->{
+            Intent main = new Intent(NotificationActivity.this, MainActivity.class);
+            main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(main);
+            finish();
         });
     }
 

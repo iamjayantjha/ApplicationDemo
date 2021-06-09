@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotificationActivity">
+    tools:context=".Model.TimeTableActivity">
 
     <ImageView
         android:id="@+id/logo"
@@ -16,11 +16,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/notification"
-        android:layout_below="@id/logo"
+        android:layout_below="@+id/logo"
+        android:id="@+id/Heading"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="No new notification"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:text="You don't have any certificates"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/link"
+        android:layout_below="@+id/Heading"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
 
 </RelativeLayout>

@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
         });
         card5.setOnClickListener(v -> {
             vibrator.vibrate(pattern,-1);
+            startActivity(new Intent(MainActivity.this,CertificatesActivity.class));
+            overridePendingTransition(R.anim.slide_in_top,R.anim.slide_out_bottom);
         });
         card6.setOnClickListener(v -> {
             vibrator.vibrate(pattern,-1);
