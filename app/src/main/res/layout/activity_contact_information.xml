@@ -13,4 +13,10 @@
         android:id="@+id/logo"
         android:src="@drawable/mu_logo"/>
 
+    <WebView
+        android:id="@+id/contact"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/logo"/>
+
 </RelativeLayout>
